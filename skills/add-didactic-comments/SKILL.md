@@ -1,4 +1,5 @@
 ---
+name: add-didactic-comments
 description: Comment tagged files so the user learns the APIs they are studying, with a doc link in every comment.
 disable-model-invocation: true
 argument-hint: "topics: the APIs the user wants to learn, ex: pandas, Pathlib"

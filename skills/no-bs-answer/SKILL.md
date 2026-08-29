@@ -1,4 +1,5 @@
 ---
+name: no-bs-answer
 description: User asked you something. Give an actionable answer.
 disable-model-invocation: true
 argument-hint: "example: yes | no = no"

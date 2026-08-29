@@ -1,4 +1,5 @@
 ---
+name: answer-as-type
 description: Answer as a return value, not as prose.
 argument-hint: "type: bool | int | float | str | list | set | infer = infer"
 arguments: [type]
