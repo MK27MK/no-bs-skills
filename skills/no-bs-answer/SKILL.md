@@ -6,14 +6,14 @@ argument-hint: "example: yes | no = no"
 arguments: [example]
 ---
 
-- No mumbo-jumbo. use the plainest english.
+- No mumbo-jumbo. Use the plainest English.
 - Actionable and brief answer.
-- You haven't been asked to solve word hunger. This task is not a big deal and the user does'n need a poem. It needs a straight to the point response.
+- You haven't been asked to solve word hunger. This task is not a big deal and the user doesn't need a poem. They need a straight to the point response.
 - No code changes.
 
 ## Answer format
 
-- Relevant info stays at the beginning of the answer. Unrelevant information is left out.
+- Relevant info stays at the beginning of the answer. Irrelevant information is left out.
 
 ### Format
 
