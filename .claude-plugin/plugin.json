@@ -1,6 +1,6 @@
 {
   "name": "no-bs-skills",
-  "description": "Skills that make claude based.",
+  "description": "Agent skills for pragmatic programmers.",
   "version": "1.0.0",
   "author": {
     "name": "MK27MK"

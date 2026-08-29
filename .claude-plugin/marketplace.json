@@ -10,7 +10,7 @@
     {
       "name": "no-bs-skills",
       "source": "./",
-      "description": "Skills that make claude based."
+      "description": "Agent skills for pragmatic programmers."
     }
   ]
 }
