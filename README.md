@@ -107,6 +107,6 @@ Useful when you have a non-trivial question that still has a simple answer.
 > The agent had reminded me the repo was missing a license, so I asked:
 >
 > ```
-> me: "/answer-as-type str which license do I pick?"
+> me: "/no-bs-skills:answer-as-type str which license do I pick?"
 > agent: "MIT"
 > ```
