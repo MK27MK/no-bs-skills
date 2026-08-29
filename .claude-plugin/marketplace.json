@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "no-bs-skills",
+  "owner": {
+    "name": "MK27MK",
+    "url": "https://github.com/MK27MK"
+  },
+  "description": "Agent skills for pragmatic programmers.",
+  "plugins": [
+    {
+      "name": "no-bs-skills",
+      "source": "./",
+      "description": "Skills that make claude based."
+    }
+  ]
+}

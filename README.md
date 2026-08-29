@@ -2,6 +2,23 @@
 
 These agent skills are meant for pragmatic programmers. I actually use them and I'm actively improving them.
 
+## Install
+
+In Claude Code, register this repo as a plugin marketplace, then install the plugin from it:
+
+```
+/plugin marketplace add MK27MK/no-bs-skills
+/plugin install no-bs-skills@no-bs-skills
+```
+
+Run `/reload-plugins` if the install summary asks for it. The skills are namespaced under the plugin name:
+
+```
+/no-bs-skills:no-bs-answer how does the auth middleware decide who is logged in?
+```
+
+To try the skills without installing, clone the repo and start Claude Code with `claude --plugin-dir ./no-bs-skills`.
+
 ## Why this repo?
 
 - LLM answers are packed with buzzwords, and the one useful sentence is a needle in a haystack. I want the agent to do the work I assigned. The implications and the consequences are mine to reason about, until a real AGI shows up and it does me dirty.
@@ -16,7 +33,7 @@ These agent skills are meant for pragmatic programmers. I actually use them and 
 
 - You know how to code but you're lazy, or you want to iterate fast $\Rightarrow$ [`fill-the-gaps`](#fill-the-gaps)
 - You don't know how to code **something** but you're eager to learn $\Rightarrow$ [`add-didactic-comments`](#add-didactic-comments)
-- You want a plan you can act on, or a straight explanation of a codebase $\Rightarrow$ [`i-wanna-know`](#i-wanna-know)
+- You want a plan you can act on, or a straight explanation of a codebase $\Rightarrow$ [`no-bs-answer`](#no-bs-answer)
 - You have one narrow question and want one narrow answer $\Rightarrow$ [`answer-as-type`](#answer-as-type)
 
 ## Skills
@@ -69,7 +86,7 @@ It touches comments only, and it stops if you have unstaged changes.
 
 These skills can read the repo but cannot change it.
 
-#### `i-wanna-know`
+#### `no-bs-answer`
 
 The actual information in an answer is too often buried under lines and lines of AI padding. You have a question with a practical answer, and you don't want to wade through remarks built on assumptions, which are built on guesses, which are built on nothing at all.
 
