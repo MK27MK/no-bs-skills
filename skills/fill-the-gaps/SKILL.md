@@ -1,9 +1,9 @@
 ---
-name: filling-the-gaps
+name: fill-the-gaps
 description: Complete work in progress that the user left incomplete on purpose. Use when the tree holds bare signatures, empty modules, pseudo code, deleted code, or `AI TODO` / `AI FIXME` / `AI NOTE` markers.
 disable-model-invocation: true
-argument-hint: "lock_entities: y | n = y, lock_names: y | n = y"
-arguments: [lock_entities, lock_names]
+argument-hint: "lock_definitions: y | n = y, lock_names: y | n = y"
+arguments: [lock_definitions, lock_names]
 ---
 
 # Filling the gaps
@@ -43,17 +43,17 @@ Read both locks before the first edit. The default of each one is `y`.
 
 | Lock | `y` says |
 | :-- | :-- |
-| `lock_entities` | The set of definitions is closed. Add none. |
+| `lock_definitions` | The set of definitions is closed. Add none. |
 | `lock_names` | The names are frozen. Rename none. |
 
-## lock_entities
+## lock_definitions
 
-- IF `lock_entities` is `y`, THEN write no new function, no new class, and no new method. Put the work in the definitions that the tree already holds.
+- IF `lock_definitions` is `y`, THEN write no new function, no new class, and no new method. Put the work in the definitions that the tree already holds.
 - IF a call has no definition, because the user deleted it or never wrote it, THEN delete the call and each line that serves only the call. NEVER write the absent definition.
 - ALWAYS do that work again with the builtin types and the builtin functions of the language, or with a library that the repository already imports.
 - ALWAYS name, in your answer, each call that you deleted, and what does the work now.
 - IF the work cannot run without one new definition, THEN stop. Name it, say why the builtins are not enough, and wait.
-- IF `lock_entities` is `n`, THEN write the definitions that the gaps ask for, and no more.
+- IF `lock_definitions` is `n`, THEN write the definitions that the gaps ask for, and no more.
 
 <good-examples>
 - The tree calls `Money(amount)`, and no `Money` exists. The call goes, and the amount stays a `Decimal`.
@@ -73,4 +73,4 @@ Read both locks before the first edit. The default of each one is `y`.
 
 The lock covers a name of the user. A local variable that you write is yours in both modes.
 
-A deletion is not a rename. IF `lock_entities` is `y`, and it asks you to delete a call, THEN delete it. `lock_names` does not stop a deletion.
+A deletion is not a rename. IF `lock_definitions` is `y`, and it asks you to delete a call, THEN delete it. `lock_names` does not stop a deletion.
