@@ -38,7 +38,7 @@ This skill takes two optional arguments, both `y` (yes) by default:
 - `lock_names`: the agent keeps every name as you wrote it, even one it thinks
   is wrong.
 
-> **New feature or new project**
+> Example: **New feature or new project**
 >
 > You sketch the shape: the signatures you want to call, the empty classes that
 > name the concepts, a few lines of pseudo code for the tricky part. Then you
@@ -50,7 +50,7 @@ This skill takes two optional arguments, both `y` (yes) by default:
 > the decisions you are better at, and the agent gets the mechanical work it is
 > better at.
 
-> **Refactor**
+> Example: **Refactor**
 >
 > You are dealing with badly written code. You delete what has to go, drop an
 > `AI FIXME [optional_details]` comment on what stays but is wrong, and leave the callers pointing at
@@ -84,3 +84,12 @@ Ask the agent precise questions that can be answered as if they
 were functions. The agent sticks to the "data type" of the answer and says nothing more.
 
 Useful when you have a non-trivial question that still has a simple answer.
+
+> Example: **Picking a license**
+>
+> The agent had reminded me the repo was missing a license, so I asked:
+>
+> ```
+> me: "/answer-as-type str which license do I pick?"
+> agent: "MIT"
+> ```
