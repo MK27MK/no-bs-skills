@@ -34,8 +34,6 @@ Run `/reload-plugins` if the install summary asks for it. The skills are namespa
 /no-bs-skills:no-bs-answer how does the auth middleware decide who is logged in?
 ```
 
-To try the skills without installing, clone the repo and start Claude Code with `claude --plugin-dir ./no-bs-skills`.
-
 ## Skills
 
 ### Coding skills
