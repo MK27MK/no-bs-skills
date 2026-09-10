@@ -14,12 +14,14 @@ These agent skills are meant for pragmatic programmers. I actually use them and 
 
 ## Which skill should I pick?
 
-- You know how to code but you're lazy, or you want to iterate fast $\Rightarrow$ [`fill-the-gaps`](#fill-the-gaps)
-- You don't know how to code **something** but you're eager to learn $\Rightarrow$ [`add-didactic-comments`](#add-didactic-comments)
-- You want a plan you can act on, or a straight explanation of a codebase $\Rightarrow$ [`no-bs-answer`](#no-bs-answer)
-- You have one narrow question and want one narrow answer $\Rightarrow$ [`answer-as-type`](#answer-as-type)
-- You want the agent to execute and shut up $\Rightarrow$ [`just-do-it`](#just-do-it)
-- You don't want to take the agent's word for it $\Rightarrow$ [`back-your-claims`](#back-your-claims)
+You...
+
+- Know how to code but you're lazy, or you want to iterate fast $\Rightarrow$ [`fill-the-gaps`](#fill-the-gaps)
+- Don't know how to code **something** but you're eager to learn $\Rightarrow$ [`add-didactic-comments`](#add-didactic-comments)
+- Want a plan you can act on, or a straight explanation of a codebase $\Rightarrow$ [`no-bs-answer`](#no-bs-answer)
+- Have one narrow question and want one narrow answer $\Rightarrow$ [`answer-as-type`](#answer-as-type)
+- Want the agent to execute and shut up $\Rightarrow$ [`just-do-it`](#just-do-it)
+- Don't want to take the agent's word for it $\Rightarrow$ [`back-your-claims`](#back-your-claims)
 
 ## Install
 
