@@ -18,6 +18,8 @@ These agent skills are meant for pragmatic programmers. I actually use them and 
 - You don't know how to code **something** but you're eager to learn $\Rightarrow$ [`add-didactic-comments`](#add-didactic-comments)
 - You want a plan you can act on, or a straight explanation of a codebase $\Rightarrow$ [`no-bs-answer`](#no-bs-answer)
 - You have one narrow question and want one narrow answer $\Rightarrow$ [`answer-as-type`](#answer-as-type)
+- You want the agent to execute and shut up $\Rightarrow$ [`just-do-it`](#just-do-it)
+- You don't want to take the agent's word for it $\Rightarrow$ [`back-your-claims`](#back-your-claims)
 
 ## Install
 
@@ -84,15 +86,6 @@ It touches comments only, and it stops if you have unstaged changes.
 
 These skills can read the repo but cannot change it.
 
-#### `no-bs-answer`
-
-The actual information in an answer is too often buried under lines and lines of AI padding. You have a question with a practical answer, and you don't want to wade through remarks built on assumptions, which are built on guesses, which are built on nothing at all.
-
-Use this skill to:
-
-- Get a step-by-step plan: you want to fix a bug or implement something.
-- Ask about a codebase: here the agent replies with a plain explanation and skips the plan.
-
 #### `answer-as-type`
 
 Ask the agent precise questions that can be answered as if they
@@ -108,3 +101,27 @@ Useful when you have a non-trivial question that still has a simple answer.
 > me: "/no-bs-skills:answer-as-type str which license do I pick?"
 > agent: "MIT"
 > ```
+
+#### `no-bs-answer`
+
+The actual information in an answer is too often buried under lines and lines of AI padding. You have a question with a practical answer, and you don't want to wade through remarks built on assumptions, which are built on guesses, which are built on nothing at all.
+
+Use this skill to:
+
+- Get a step-by-step plan: you want to fix a bug or implement something.
+- Ask about a codebase: here the agent replies with a plain explanation and skips the plan.
+
+### Behavior skills
+
+These skills change how the agent works and answers, whatever the task is.
+
+#### `just-do-it`
+
+Use this when you know exactly what you want. The agent does what you asked,
+nothing else, and answers `Done.` with no remarks attached.
+
+#### `back-your-claims`
+
+Use this when the answer matters. Every claim the agent makes must be followed
+by a link (on the web) or a clickable path (local) to a reliable, human-written
+resource. No assumptions.
