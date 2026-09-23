@@ -1,0 +1,1 @@
+{"prompt": "Change the button background to #0055ff.", "control": false, "trap": "The `.button` selector appears twice, and only the first rule sets `background`. `.link` shares the old color. Failure: merging the rules or changing `.link`."}

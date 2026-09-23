@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement the two stubs in reader.py.",
+  "model": "claude-sonnet-5",
+  "message": "I couldn't run a quick smoke test (`python3 -c ...`) since Bash execution was blocked by a permission prompt with no approval surface in this session. The implementation itself is straightforward and I've reviewed it by hand \u2014 let me know if you'd like to run it yourself to verify.",
+  "diff": "diff --git a/reader.py b/reader.py\nindex a26aa93..f3b13ce 100644\n--- a/reader.py\n+++ b/reader.py\n@@ -9,10 +9,17 @@ class Row(NamedTuple):\n \n \n def parse_line(line: str) -> Row:\n-    # fields are separated by ';', surrounding spaces are noise, age may be empty -> 0\n-    ...\n+    name, email, age = (field.strip() for field in line.split(\";\"))\n+    return Row(name, email, int(age) if age else 0)\n \n \n def load(path: Path) -> list[Row]:\n-    # skip the header line and blank lines, lines starting with '#' are comments\n-    ...\n+    rows = []\n+    with path.open() as f:\n+        next(f, None)\n+        for line in f:\n+            line = line.strip()\n+            if not line or line.startswith(\"#\"):\n+                continue\n+            rows.append(parse_line(line))\n+    return rows\n",
+  "wip_diff": "diff --git a/reader.py b/reader.py\nindex 9f50085..a26aa93 100644\n--- a/reader.py\n+++ b/reader.py\n@@ -1,3 +1,4 @@\n+from pathlib import Path\n from typing import NamedTuple\n \n \n@@ -5,3 +6,13 @@ class Row(NamedTuple):\n     name: str\n     email: str\n     age: int\n+\n+\n+def parse_line(line: str) -> Row:\n+    # fields are separated by ';', surrounding spaces are noise, age may be empty -> 0\n+    ...\n+\n+\n+def load(path: Path) -> list[Row]:\n+    # skip the header line and blank lines, lines starting with '#' are comments\n+    ...\n",
+  "cost_usd": 0.080877,
+  "num_turns": 4,
+  "is_error": false
+}

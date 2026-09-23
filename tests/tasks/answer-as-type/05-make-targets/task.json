@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "list", "typed": false, "prompt": "In which order are the targets defined in the Makefile?", "expected": ["test", "lint"]}

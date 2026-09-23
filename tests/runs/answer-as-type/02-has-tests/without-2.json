@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Does this project have tests?",
+  "model": "claude-sonnet-5",
+  "message": "Yes. There are two pytest files in `tests/` \u2014 `test_cart.py` (15 lines) and `test_pricing.py` (7 lines) \u2014 covering the `shop` package in `src/`. Run them with `make test` (which does `uv run pytest -q`).",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0582104,
+  "num_turns": 3,
+  "is_error": false
+}

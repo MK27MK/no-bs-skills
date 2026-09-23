@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "without-3",
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: format_price now uses f\"{amount:.2f} {currency}\", a minimal, correct fix scoped exactly to the request with no unrelated changes and no broken behavior.",
+  "cost_usd": 0.0293582
+}

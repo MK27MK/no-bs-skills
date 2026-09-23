@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are byte-for-byte identical: only the getData->fetchUsers rename in api.js and app.js, with call sites updated consistently. Neither output touches the pre-existing missing-await bug in api.js's fetch call, so both correctly avoid unrequested changes. No breakage introduced.\"",
+  "cost_usd": 0.0466
+}

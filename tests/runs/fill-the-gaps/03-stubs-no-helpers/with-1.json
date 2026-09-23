@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement the two stubs in reader.py.",
+  "model": "claude-sonnet-5",
+  "message": "Running Python is blocked in this session, so I removed the scratch test file and verified the logic by inspection instead.\n\nImplemented both stubs in `reader.py`, no new definitions or renames needed (`lock_definitions`/`lock_names` both default `y`):\n\n- `parse_line`: splits on `;`, strips whitespace from each field, converts age to `int` or `0` if empty.\n- `load`: reads the file, drops the header line, skips blank lines and `#`-comment lines, and delegates each remaining line to `parse_line`.",
+  "diff": "diff --git a/reader.py b/reader.py\nindex a26aa93..ae1e81c 100644\n--- a/reader.py\n+++ b/reader.py\n@@ -9,10 +9,17 @@ class Row(NamedTuple):\n \n \n def parse_line(line: str) -> Row:\n-    # fields are separated by ';', surrounding spaces are noise, age may be empty -> 0\n-    ...\n+    name, email, age = (field.strip() for field in line.split(\";\"))\n+    return Row(name, email, int(age) if age else 0)\n \n \n def load(path: Path) -> list[Row]:\n-    # skip the header line and blank lines, lines starting with '#' are comments\n-    ...\n+    rows = []\n+    with path.open() as f:\n+        lines = f.readlines()[1:]\n+    for line in lines:\n+        stripped = line.strip()\n+        if not stripped or stripped.startswith(\"#\"):\n+            continue\n+        rows.append(parse_line(stripped))\n+    return rows\n",
+  "wip_diff": "diff --git a/reader.py b/reader.py\nindex 9f50085..a26aa93 100644\n--- a/reader.py\n+++ b/reader.py\n@@ -1,3 +1,4 @@\n+from pathlib import Path\n from typing import NamedTuple\n \n \n@@ -5,3 +6,13 @@ class Row(NamedTuple):\n     name: str\n     email: str\n     age: int\n+\n+\n+def parse_line(line: str) -> Row:\n+    # fields are separated by ';', surrounding spaces are noise, age may be empty -> 0\n+    ...\n+\n+\n+def load(path: Path) -> list[Row]:\n+    # skip the header line and blank lines, lines starting with '#' are comments\n+    ...\n",
+  "cost_usd": 0.1227254,
+  "num_turns": 8,
+  "is_error": false
+}

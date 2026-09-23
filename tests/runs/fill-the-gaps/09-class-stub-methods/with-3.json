@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement RateLimiter, sliding window per client.",
+  "model": "claude-sonnet-5",
+  "message": "I couldn't run a quick sanity check (`python3 -c ...`) since Bash requires approval this session and none is available \u2014 but the change is small and self-contained, so I'm confident in it. `RateLimiter` now tracks a per-`client_id` list of call timestamps, evicts entries outside the trailing `per_seconds` window, and allows the call only if fewer than `max_calls` remain in-window.",
+  "diff": "diff --git a/limiter.py b/limiter.py\nindex 8f7f971..78b31ee 100644\n--- a/limiter.py\n+++ b/limiter.py\n@@ -3,7 +3,17 @@ import time\n \n class RateLimiter:\n     def __init__(self, max_calls: int, per_seconds: float) -> None:\n-        ...\n+        self.max_calls = max_calls\n+        self.per_seconds = per_seconds\n+        self._calls: dict[str, list[float]] = {}\n \n     def allow(self, client_id: str) -> bool:\n-        ...\n+        now = time.monotonic()\n+        window_start = now - self.per_seconds\n+        calls = self._calls.setdefault(client_id, [])\n+        while calls and calls[0] <= window_start:\n+            calls.pop(0)\n+        if len(calls) >= self.max_calls:\n+            return False\n+        calls.append(now)\n+        return True\n",
+  "wip_diff": "diff --git a/limiter.py b/limiter.py\nnew file mode 100644\nindex 0000000..8f7f971\n--- /dev/null\n+++ b/limiter.py\n@@ -0,0 +1,9 @@\n+import time\n+\n+\n+class RateLimiter:\n+    def __init__(self, max_calls: int, per_seconds: float) -> None:\n+        ...\n+\n+    def allow(self, client_id: str) -> bool:\n+        ...\n",
+  "cost_usd": 0.09731440000000001,
+  "num_turns": 6,
+  "is_error": false
+}

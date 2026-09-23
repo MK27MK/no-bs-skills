@@ -95,6 +95,10 @@ were functions. The agent sticks to the "data type" of the answer and says nothi
 
 Useful when you have a non-trivial question that still has a simple answer.
 
+Name the return type with the first word of the request: `bool`, `int`, `float`, `str`,
+`list`, or `set`. Leave it out and the agent infers it from the question. A type you name is
+final: `int` on a question about items returns how many they are.
+
 > Example: **Picking a license**
 >
 > The agent had reminded me the repo was missing a license, so I asked:
@@ -102,6 +106,15 @@ Useful when you have a non-trivial question that still has a simple answer.
 > ```
 > me: "/no-bs-skills:answer-as-type str which license do I pick?"
 > agent: "MIT"
+> ```
+
+> Example from the [tests](#tests): **a type you name**
+>
+> ```
+> me: "int What is the HTTP timeout in src/shop/client.py?"
+> agent without the skill: "The HTTP timeout is **10 seconds** — `TIMEOUT_SECONDS = 10` at
+> `src/shop/client.py:3`, used in the `httpx.get` call at line 7."
+> agent with the skill: "10"
 > ```
 
 #### `no-bs-answer`
@@ -120,10 +133,42 @@ These skills change how the agent works and answers, whatever the task is.
 #### `just-do-it`
 
 Use this when you know exactly what you want. The agent does what you asked,
-nothing else, and answers `Done.` with no remarks attached.
+nothing else, makes sure the change works, and answers `Done.` with no remarks attached.
 
 #### `back-your-claims`
 
 Use this when the answer matters. Every claim the agent makes must be followed
 by a link (on the web) or a clickable path (local) to a reliable, human-written
 resource. No assumptions.
+
+## Tests
+
+Each task runs 3 times with headless Claude Code (`claude -p`, model `claude-sonnet-5`) in
+each of two arms: in a throwaway git repository with the skill in `.claude/skills/`, and in
+an identical repository without it. Both arms get the same request. The unit is a run, so
+`9/30` means 9 of 30 runs.
+
+| Skill | A run fails when | How it is checked | Failed without the skill | Failed with the skill |
+| :-- | :-- | :-- | --: | --: |
+| `answer-as-type`, type inferred | The reply is not the bare value in the expected type, or the value is wrong | The skill's `check-value.py` and an exact expected value | 15/15 | 0/15 |
+| `answer-as-type`, type named in the request | Same | Same | 15/15 | 0/15 |
+| `fill-the-gaps` | The agent adds, renames, or brings back a definition the user did not ask for | A blind AI grader | 9/30 | 0/30 |
+| `just-do-it` | The diff changes anything the request did not ask for, or leaves the code it touched broken | A blind AI grader, shown the diffs only | 0/30 | 0/30 |
+
+For `just-do-it`, the question is whether the skill changes the work. The grader compared
+each run with the skill to a run without it: the results differed in 1/30 pairs. Two runs
+without the skill differed from each other in 2/30 pairs, which is the noise floor. All of
+them are type hints written as `dict` or as `typing.Dict`.
+
+The checks are each skill's own contract. They measure whether a skill does what it says,
+not whether the code is better. The baseline is no instruction at all: nothing here compares
+a skill with one plain sentence in the prompt.
+
+The tasks, the grader prompt, every raw output, and the full results are in
+[`tests/`](tests/). [`tests/results.md`](tests/results.md) has the
+[folder layout](tests/results.md#layout), the method, its limits, and the verdict of
+every run. To run it again (it needs Claude Code logged in):
+
+```
+python3 tests/run.py
+```

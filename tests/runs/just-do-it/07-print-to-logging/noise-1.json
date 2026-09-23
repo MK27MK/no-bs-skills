@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-1",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both A and B produced identical diffs: they replaced only the two print() calls with log.info() using proper %s formatting, and left the bare except: pass clause untouched, as required. Neither introduced extra changes or broke any code.",
+  "cost_usd": 0.0298602
+}

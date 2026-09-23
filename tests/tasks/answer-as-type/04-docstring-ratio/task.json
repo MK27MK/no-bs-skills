@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "float", "typed": false, "prompt": "What fraction of the functions in src/shop/pricing.py have a docstring?", "expected": "0.5"}

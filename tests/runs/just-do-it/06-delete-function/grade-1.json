@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they only remove the old_parser function definition, leaving the unused os and sys imports untouched and the parse function intact. No extra changes and nothing is broken in either case.",
+  "cost_usd": 0.0294622
+}

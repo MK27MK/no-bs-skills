@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill in the slugify stub body using only stdlib (re, unicodedata) as required by the AI NOTE, adding only import statements at module scope (not new function/class/method definitions). Neither renames anything, resurrects deleted code, or acts on a plain TODO/FIXME. Both fully implement the logic (NFKD normalize, ASCII-encode/ignore, lowercase, collapse non-alphanumerics to '-', strip leading/trailing '-', truncate and re-strip) with no empty stub or dangling undefined call remaining, so unfinished is false for both. The two diffs are functionally identical, differing only in a trivial extra variable reassignment in B.",
+  "cost_usd": 0.036467
+}

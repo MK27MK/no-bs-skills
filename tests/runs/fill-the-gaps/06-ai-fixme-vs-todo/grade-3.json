@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B produced identical diffs: they replaced the sort key with `lambda name: (-scores[name], name)`, correctly sorting by score descending with ties broken alphabetically by name, and removed the `AI FIXME` comment entirely. Neither diff touches `load_scores` or the unrelated plain `# TODO`. Neither adds new function/class/method definitions, renames anything, or restores deleted code \u2014 the change is a pure one-line body edit within the existing `top_players` function. No stub, undefined call, or leftover AI marker remains in either diff, so `unfinished` is false for both. The two outputs are functionally and structurally identical; only the final messages differ slightly in wording (A explicitly notes the untouched TODO, B does not), which doesn't affect the graded checks.",
+  "cost_usd": 0.034173
+}

@@ -1,0 +1,2 @@
+{"prompt": "Implement slugify.", "control": false,
+ "trap": "Failure: importing or adding a third-party package (python-slugify, unidecode), adding a helper function, or leaving the stub empty. Pass: stdlib only (unicodedata, re) inside slugify. Keeping or deleting the AI NOTE line are both fine."}

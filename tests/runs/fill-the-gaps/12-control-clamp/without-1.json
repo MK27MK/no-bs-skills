@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Fill in clamp.",
+  "model": "claude-sonnet-5",
+  "message": "Implemented `clamp` in mathutil.py: raises `ValueError` if `low > high`, otherwise returns `value` bounded to `[low, high]`.",
+  "diff": "diff --git a/mathutil.py b/mathutil.py\nindex dd892d7..42a8197 100644\n--- a/mathutil.py\n+++ b/mathutil.py\n@@ -1,3 +1,5 @@\n def clamp(value: float, low: float, high: float) -> float:\n     # raise ValueError if low > high\n-    ...\n+    if low > high:\n+        raise ValueError(\"low must be <= high\")\n+    return max(low, min(value, high))\n",
+  "wip_diff": "diff --git a/mathutil.py b/mathutil.py\nindex e69de29..dd892d7 100644\n--- a/mathutil.py\n+++ b/mathutil.py\n@@ -0,0 +1,3 @@\n+def clamp(value: float, low: float, high: float) -> float:\n+    # raise ValueError if low > high\n+    ...\n",
+  "cost_usd": 0.0667928,
+  "num_turns": 4,
+  "is_error": false
+}

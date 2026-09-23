@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "without-3",
+  "without-1": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "without-3": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both A and B produce byte-identical diffs: they rename getData to fetchUsers consistently in api.js and app.js, and touch nothing else. Neither fixes the pre-existing missing-await bug in api.js, but since the rename itself doesn't change call signatures or arguments, the code isn't newly broken by the rename - it behaves the same as before (still buggy in the same pre-existing way). No extra changes, no reformatting, no comments added in either output.",
+  "cost_usd": 0.047355999999999995
+}

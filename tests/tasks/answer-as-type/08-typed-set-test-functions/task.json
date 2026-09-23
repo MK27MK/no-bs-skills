@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "set", "typed": true, "prompt": "Which test functions does the project have?", "expected": ["test_total_adds_vat", "test_total_with_discount", "test_round_cents"]}

@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Do the AI TODO in src/search.ts.",
+  "model": "claude-sonnet-5",
+  "message": "Implemented debouncing (300ms via `setTimeout`/`clearTimeout`) and the short-query skip (< 2 chars) directly in `bindSearch`, no new definitions added \u2014 just a local `timer` variable, which is mine to name freely under `lock_names`. Marker removed.",
+  "diff": "diff --git a/src/search.ts b/src/search.ts\nindex 153b6bc..5ac9696 100644\n--- a/src/search.ts\n+++ b/src/search.ts\n@@ -1,6 +1,11 @@\n export function bindSearch(input: HTMLInputElement, search: (q: string) => void): void {\n-  // AI TODO: debounce, 300ms, and skip queries shorter than 2 chars\n+  let timer: ReturnType<typeof setTimeout> | undefined;\n   input.addEventListener(\"input\", () => {\n-    search(input.value);\n+    clearTimeout(timer);\n+    const query = input.value;\n+    if (query.length < 2) {\n+      return;\n+    }\n+    timer = setTimeout(() => search(query), 300);\n   });\n }\n",
+  "wip_diff": "diff --git a/src/search.ts b/src/search.ts\nindex 65420f7..153b6bc 100644\n--- a/src/search.ts\n+++ b/src/search.ts\n@@ -1,4 +1,5 @@\n export function bindSearch(input: HTMLInputElement, search: (q: string) => void): void {\n+  // AI TODO: debounce, 300ms, and skip queries shorter than 2 chars\n   input.addEventListener(\"input\", () => {\n     search(input.value);\n   });\n",
+  "cost_usd": 0.0687458,
+  "num_turns": 3,
+  "is_error": false
+}

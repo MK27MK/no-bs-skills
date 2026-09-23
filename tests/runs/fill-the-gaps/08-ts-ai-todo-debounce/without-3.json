@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Do the AI TODO in src/search.ts.",
+  "model": "claude-sonnet-5",
+  "message": "Done \u2014 `bindSearch` now debounces input events by 300ms and skips firing `search` for queries under 2 characters.",
+  "diff": "diff --git a/src/search.ts b/src/search.ts\nindex 153b6bc..e16342f 100644\n--- a/src/search.ts\n+++ b/src/search.ts\n@@ -1,6 +1,11 @@\n export function bindSearch(input: HTMLInputElement, search: (q: string) => void): void {\n-  // AI TODO: debounce, 300ms, and skip queries shorter than 2 chars\n+  let timer: ReturnType<typeof setTimeout> | undefined;\n   input.addEventListener(\"input\", () => {\n-    search(input.value);\n+    if (timer !== undefined) clearTimeout(timer);\n+    timer = setTimeout(() => {\n+      const value = input.value;\n+      if (value.length < 2) return;\n+      search(value);\n+    }, 300);\n   });\n }\n",
+  "wip_diff": "diff --git a/src/search.ts b/src/search.ts\nindex 65420f7..153b6bc 100644\n--- a/src/search.ts\n+++ b/src/search.ts\n@@ -1,4 +1,5 @@\n export function bindSearch(input: HTMLInputElement, search: (q: string) => void): void {\n+  // AI TODO: debounce, 300ms, and skip queries shorter than 2 chars\n   input.addEventListener(\"input\", () => {\n     search(input.value);\n   });\n",
+  "cost_usd": 0.0601342,
+  "num_turns": 3,
+  "is_error": false
+}

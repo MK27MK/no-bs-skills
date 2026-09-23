@@ -1,0 +1,15 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill in only the two existing stub bodies in reader.py with equivalent logic (split on ';', strip fields, age empty->0; skip header/blank/comment lines) and neither adds, renames, or restores any function/class/method, nor acts on a TODO/FIXME marker \u2014 the stub comments were plain implementation notes, not TODO markers. Both stubs are fully implemented (no lingering ... or undefined calls), so unfinished is false for both. Output A additionally leaves a stray untracked scratch file (_test_reader.py) it couldn't clean up due to Bash being blocked, but that file contains no new function/class/method definitions (just top-level script calls to the existing functions), so it does not trigger the reshaped check as defined.",
+  "cost_usd": 0.045811000000000004
+}

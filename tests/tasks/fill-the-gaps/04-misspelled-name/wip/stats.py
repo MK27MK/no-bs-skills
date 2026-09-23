@@ -1,0 +1,6 @@
+def calcualte_avrage(values: list[float]) -> float:
+    ...
+
+
+def calcualte_median(values: list[float]) -> float:
+    ...

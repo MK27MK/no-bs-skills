@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-1",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they remove only the old_parser function (and its surrounding blank lines), leaving the unused os and sys imports untouched, and leave parse() intact and functional. No extra changes, nothing broken, and the resulting code state is identical between A and B.",
+  "cost_usd": 0.0296622
+}

@@ -1,0 +1,15 @@
+{
+  "A": "with-2",
+  "B": "without-2",
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B produce identical diffs, filling the empty stub body with the standard Gregorian leap-year formula. Neither adds new definitions, renames the function, restores deleted content, or acts on a plain TODO. The stub is fully filled in with a working implementation in both cases, so neither leaves the gap unfinished.",
+  "cost_usd": 0.030073
+}

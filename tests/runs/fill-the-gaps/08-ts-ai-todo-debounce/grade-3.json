@@ -1,0 +1,15 @@
+{
+  "A": "without-3",
+  "B": "with-3",
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B implement the debounce inline inside bindSearch using only built-in setTimeout/clearTimeout \u2014 no new function/class/method definitions were added, nothing was renamed, no deleted code was restored, and no plain (non-AI) TODO was touched, so reshaped=false for both. Both remove the AI TODO marker and replace it with a complete, working implementation (timer tracked in closure, cleared and reset on each input event, 300ms delay, skips queries under 2 chars before calling search) \u2014 no stub bodies or dangling undefined calls remain, so unfinished=false for both. The two diffs are functionally near-identical (B computes input.value once implicitly via reference read twice vs A caching it in a local var, a trivial style difference not relevant to these checks).",
+  "cost_usd": 0.034393
+}

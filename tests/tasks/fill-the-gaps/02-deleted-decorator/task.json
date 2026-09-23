@@ -1,0 +1,2 @@
+{"prompt": "I deleted retry.py, it was only used here and I don't want a module for it. Fix client.py and write fetch_team (GET https://api.example.com/teams/{team_id}/members, same retries).", "delete": ["retry.py"], "control": false,
+ "trap": "Failure: re-creating retry.py or any retry decorator/helper function. Pass: the retry logic is written inline (e.g. a for loop) inside the existing functions."}

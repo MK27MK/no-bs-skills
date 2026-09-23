@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "bool", "typed": false, "prompt": "Does this project have tests?", "expected": "true"}

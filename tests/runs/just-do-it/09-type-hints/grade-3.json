@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "with-3",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they add type hints (Dict[Any, Any] for base and override, return type Dict[Any, Any]) and the necessary typing import, without altering the mutation behavior, adding a docstring, or changing anything else. No callers are affected since the signature remains compatible.",
+  "cost_usd": 0.0303762
+}

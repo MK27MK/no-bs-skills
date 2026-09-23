@@ -1,0 +1,15 @@
+{
+  "A": "without-3",
+  "B": "with-3",
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill in the single-body stub for clamp without adding new definitions, renaming clamp, restoring deleted code, or acting on a plain TODO (the comment was a spec note, not a TODO/FIXME marker, and both implementations directly address it as intended). Both implementations are functionally equivalent: raise ValueError when low > high, otherwise return max(low, min(value, high)). The stub body is now fully implemented in both cases, so nothing is left unfinished. The only difference is the ValueError message wording, which does not affect either check.",
+  "cost_usd": 0.031861
+}

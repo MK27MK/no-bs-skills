@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "int", "typed": true, "prompt": "Which functions in src/shop/pricing.py are never called anywhere in the repo?", "expected": "1"}

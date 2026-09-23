@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "What fraction of the functions in src/shop/pricing.py have a docstring?",
+  "model": "claude-sonnet-5",
+  "message": "2 of 4 functions have a docstring \u2014 `with_vat` and `round_cents` \u2014 so **1/2 (50%)**. `discount` and `legacy_price` lack one.",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0560868,
+  "num_turns": 3,
+  "is_error": false
+}

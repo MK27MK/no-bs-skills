@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "A fills the stub body, computes archived emails sorted, drops the undefined log_archived call, and replaces it with a stdlib logging call \u2014 no new function/class definitions added, and no unfilled gap remains. B fills the stub correctly but also defines a new log_archived helper function that did not exist in the work-in-progress and keeps a call to it, which is exactly the reshaping failure flagged by the task (defining log_archived or any other new function). Since B's stub is fully filled and the call is now backed by a definition, the gap itself isn't left unfinished, but the diff reshapes the code beyond the request.</reason>\n</invoke>\n",
+  "cost_usd": 0.039451
+}

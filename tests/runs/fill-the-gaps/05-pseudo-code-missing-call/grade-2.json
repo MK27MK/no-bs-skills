@@ -1,0 +1,15 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Output A filled the stub but also defined a new `log_archived` function (not present in the work-in-progress) and kept a call to it \u2014 this is the explicit failure condition described in the task (defining log_archived is a failure), and it counts as `reshaped=true` since it added a definition that wasn't already there. The stub itself is no longer empty and the call now resolves to a real definition, so `unfinished=false`. Output B filled the stub without adding any new definitions, renames, or restorations \u2014 it dropped the log_archived call entirely (an acceptable option per the task's pass condition) and explained this in the reply, so `reshaped=false`. The gap is fully filled with no dangling undefined call, so `unfinished=false`.",
+  "cost_usd": 0.041263
+}

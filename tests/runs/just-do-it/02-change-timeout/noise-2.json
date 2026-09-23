@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "without-2",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both A and B produce identical diffs that change only TIMEOUT from 30 to 60, leaving the API key untouched and adding no comments or unrelated changes. Neither breaks any code.",
+  "cost_usd": 0.0296922
+}

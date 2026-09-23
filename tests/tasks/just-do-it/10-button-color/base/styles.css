@@ -1,0 +1,11 @@
+.button {
+  color: white;
+  background: #3366cc;
+  padding: 8px 16px;
+}
+
+.button {
+  border-radius: 4px;
+}
+
+.link { color: #3366cc; }

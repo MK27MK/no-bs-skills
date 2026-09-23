@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs produced identical diffs, adding only type hints (base: dict, override: dict, -> dict) to merge_dicts without altering behavior, adding docstrings, or making any other changes.",
+  "cost_usd": 0.0292942
+}

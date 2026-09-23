@@ -1,0 +1,17 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": true
+  },
+  "reason": "Both outputs only add type hints to merge_dicts without altering its mutating behavior, adding docstrings, or other unrelated changes, so neither is broken nor has extra changes. However, they differ in implementation: A uses plain `dict` annotations while B imports `Any, Dict` from typing and uses `Dict[Any, Any]`, producing visibly different code text (an added import and more verbose annotations), so the pair's results differ even though behavior is equivalent.",
+  "cost_usd": 0.0330762
+}

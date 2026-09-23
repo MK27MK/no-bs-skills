@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-3",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs made the identical, minimal change to format_price, adding :.2f formatting without touching apply_discount or anything else. Diffs are identical, so results are the same.",
+  "cost_usd": 0.029320199999999998
+}

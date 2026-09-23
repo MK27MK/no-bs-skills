@@ -1,0 +1,17 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs produce identical diffs that simply delete notes.txt, with no extra changes and nothing broken.",
+  "cost_usd": 0.0285662
+}

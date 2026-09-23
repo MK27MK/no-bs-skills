@@ -1,0 +1,15 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both diffs are identical and correctly implement the debounce/skip logic inline inside bindSearch using a local `timer` variable, with the AI TODO marker removed and no new function/class/method definitions introduced, no renames, and no restored deleted code \u2014 so reshaped=false and unfinished=false for both. Output B's final message contains an odd, unexplained reference to a 'lock_names' policy justifying the variable name, which reads as fabricated/injected framing not grounded in the task, but it doesn't affect the diff itself.",
+  "cost_usd": 0.034821
+}

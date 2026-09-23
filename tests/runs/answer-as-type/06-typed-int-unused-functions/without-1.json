@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "int Which functions in src/shop/pricing.py are never called anywhere in the repo?",
+  "model": "claude-sonnet-5",
+  "message": "`legacy_price` (src/shop/pricing.py:20) is never referenced anywhere else in the repo \u2014 no imports, no calls, no tests. The other three (`with_vat`, `discount`, `round_cents`) are all used in `src/shop/cart.py:15`.",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0656192,
+  "num_turns": 4,
+  "is_error": false
+}

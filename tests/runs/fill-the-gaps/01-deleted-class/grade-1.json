@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both outputs fill the two stub bodies in invoice.py with plain Decimal logic, remove the `from money import Money` line, and do not recreate money.py or the Money class. Neither adds new function/class/method definitions beyond what the WIP already declared (both just implement `total` and `total_with_vat`, which were already stubbed), neither renames anything, and neither brings back deleted definitions. No stub bodies are left empty and no dangling undefined calls remain, so unfinished is false for both.",
+  "cost_usd": 0.050794000000000006
+}

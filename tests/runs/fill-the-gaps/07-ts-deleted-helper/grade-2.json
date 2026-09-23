@@ -1,0 +1,15 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both agents removed the import, inlined formatting, and added a TOTAL line, so neither left the gap unfilled (unfinished=false for both). Output A recreated a standalone `formatRow` function definition inside report.ts, effectively bringing back the deleted helper function's definition \u2014 this counts as reshaping (reshaped=true). Output B inlined the formatting logic directly into the map/reduce calls using template literals with no new function definition, satisfying the 'inlined in renderReport, no new helper' pass condition (reshaped=false).",
+  "cost_usd": 0.036717
+}

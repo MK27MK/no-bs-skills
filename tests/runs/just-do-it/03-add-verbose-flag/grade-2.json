@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they add a --verbose flag and set log level to DEBUG when it's set, with no extraneous changes (no help strings, descriptions, or refactors added) and no broken behavior.",
+  "cost_usd": 0.0300402
+}

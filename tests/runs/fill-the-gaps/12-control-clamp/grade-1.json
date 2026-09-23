@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both outputs fill the single existing clamp stub body with an equivalent implementation (ValueError on low > high, else min/max clamping), without adding new definitions, renaming clamp, or restoring deleted code. Output A removes the leftover comment while B keeps it above the new code, but this is a style difference not affecting the checks. Both leave no unfilled gap.",
+  "cost_usd": 0.031895
+}

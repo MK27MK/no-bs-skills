@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-3",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they rename getData to fetchUsers in api.js and update the import/call in app.js consistently, with no other changes. Neither touches the pre-existing missing-await bug, which is correct per the task instructions (fixing it would count as an unrequested change). The rename is applied consistently so the call site still matches the function signature/name, leaving nothing newly broken.</reason>\n</invoke>\n",
+  "cost_usd": 0.047778
+}

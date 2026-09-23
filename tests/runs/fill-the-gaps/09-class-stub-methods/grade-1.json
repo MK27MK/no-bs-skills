@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B only fill in the bodies of the pre-existing __init__ and allow stubs with a sliding-window deque implementation; neither adds new methods/classes, renames anything, or leaves the stub unfilled (both bodies are fully implemented with no remaining `...` or undefined calls).",
+  "cost_usd": 0.035135
+}

@@ -1,0 +1,15 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B implement the debounce entirely inline within bindSearch using a local `timer` variable and setTimeout/clearTimeout \u2014 neither adds a new named function/class/method, renames existing code, or restores deleted code; the anonymous callbacks passed to addEventListener/setTimeout are expected, not reshaping. Both delete the `AI TODO` comment and fully implement the required behavior (300ms debounce, skip queries under 2 chars) with no stubs or dangling references, so unfinished is false for both. No pair-level checks were specified.",
+  "cost_usd": 0.039549
+}

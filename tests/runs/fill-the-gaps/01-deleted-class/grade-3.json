@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B filled the two existing stub bodies (total, total_with_vat) with plain Decimal arithmetic, removed the `from money import Money` import, and did not recreate Money or money.py, nor add/rename any definitions. Neither left a stub empty or a dangling undefined call. A uses a generator+sum, B uses an explicit loop; both are functionally equivalent and fully finished.</reason>\n</invoke>\n",
+  "cost_usd": 0.049908
+}

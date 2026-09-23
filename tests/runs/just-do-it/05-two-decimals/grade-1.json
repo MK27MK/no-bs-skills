@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs produced identical minimal diffs, changing only the format_price return line to use :.2f formatting, without touching apply_discount or switching to Decimal. No extra changes and no breakage in either.",
+  "cost_usd": 0.029438199999999998
+}
