@@ -48,7 +48,15 @@ In a grade file, `A` and `B` name the run the grader saw under each label. The c
 
 ## Method
 
-Each task runs 3 times in each of two arms. Every run happens in its own throwaway git repository under the system temp directory. The repositories of the two arms are identical, except that the one with the skill holds it in `.claude/skills/`. The run with the skill gets the prompt `/<skill> <request>`, because every skill in this repo is invoked by hand. The run without the skill gets `<request>` alone, the same words. Each run is a fresh `claude -p` session. It loads project settings only, so no user `CLAUDE.md`, plugin, hook, or MCP server reaches it. File edits are accepted. Bash is limited to read-only commands (`ls`, `cat`, `grep`, `git diff`, ...), and every other permission request is denied.
+Each task runs 3 times in each of two arms: 34 tasks x 3 runs x 2 arms = 204 runs.
+
+| Skill | Tasks | Controls | Runs per task and arm | Runs | Grades |
+| :-- | --: | --: | --: | --: | --: |
+| `answer-as-type` | 10 | 0 | 3 | 60 | 0 |
+| `fill-the-gaps` | 10 | 2 | 3 | 72 | 36 |
+| `just-do-it` | 10 | 2 | 3 | 72 | 72 |
+
+`just-do-it` has twice the grades because of the noise floor below. Every run happens in its own throwaway git repository under the system temp directory. The repositories of the two arms are identical, except that the one with the skill holds it in `.claude/skills/`. The run with the skill gets the prompt `/<skill> <request>`, because every skill in this repo is invoked by hand. The run without the skill gets `<request>` alone, the same words. Each run is a fresh `claude -p` session. It loads project settings only, so no user `CLAUDE.md`, plugin, hook, or MCP server reaches it. File edits are accepted. Bash is limited to read-only commands (`ls`, `cat`, `grep`, `git diff`, ...), and every other permission request is denied.
 
 The unit in every table is a run, not a task. `3/30` means 3 of the 30 runs failed.
 
@@ -76,7 +84,7 @@ Controls are tasks where the skill should change nothing. They are counted apart
 
 ## Limits
 
-- 3 runs per task and arm, 10 or 12 tasks per skill. The samples are small.
+- 3 runs per task and arm, 10 tasks per skill, and 2 controls for `fill-the-gaps` and `just-do-it`. The samples are small.
 - The grader is the same model as the agent. For `fill-the-gaps`, the run with the skill can give itself away (it talks about its "locks"), so the grader is blind to the label, not always to the style.
 - The checks are the skills' own contracts. They measure whether a skill does what it says, not whether the code is better. A change that is wrong but inside the request passes `extra_changes`.
 - There is no third arm that gives the agent the same goal as one plain sentence ("answer with the bare value"). These numbers compare the skill against no instruction, not against the cheapest instruction.
