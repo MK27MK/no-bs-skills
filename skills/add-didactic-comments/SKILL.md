@@ -10,7 +10,7 @@ arguments: [topics]
 
 Files with unstaged changes, tracked and untracked:
 
-!`git status --porcelain --untracked-files=all -- . ':(exclude).agents/skills' ':(exclude).claude/skills' ':(exclude)skills-lock.json' | grep -E '^.[^ ]' || true`
+!`git status --porcelain --untracked-files=all | grep -E '^.[^ ]' || true`
 
 - If that list is empty, go ahead with the skill.
 - If it is not empty, stop.

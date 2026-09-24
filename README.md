@@ -34,19 +34,6 @@ under [`skills/`](skills/).
 npx skills add MK27MK/no-bs-skills
 ```
 
-The [skills CLI](https://github.com/vercel-labs/skills) asks which skills and which agents
-to install for. To skip the questions, name them:
-
-```
-npx skills add MK27MK/no-bs-skills --skill '*' -a codex -a cursor -y
-```
-
-Codex, Cursor, OpenCode, and the other agents that read `.agents/skills/` share one copy
-there, in the current project. Claude Code gets its copy in `.claude/skills/`. Add `-g` to
-install for your user instead, in `~/.agents/skills/` and `~/.claude/skills/`. The CLI's
-[list of agents](https://github.com/vercel-labs/skills#supported-agents) gives the name to
-pass to `-a` for each one.
-
 ### Claude Code, as a plugin
 
 Register this repo as a plugin marketplace, then install the plugin from it:
