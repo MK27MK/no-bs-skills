@@ -1,0 +1,17 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both A and B produce identical diffs: they correctly sort the Contributors list alphabetically (Ana Souza, Ben Okafor, Lukas Weber, Priya Natarajan) without touching the intro typos ('libary', 'suports') or making any other unrelated changes. Neither diff leaves anything broken. The two outputs are functionally and textually identical in result.</reason>\n</invoke>\n",
+  "cost_usd": 0.0305742
+}

@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-3",
+  "without-2": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "without-3": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical, adding a --verbose flag and using it to conditionally set logging.DEBUG, with no unrelated changes and no breakage.",
+  "cost_usd": 0.030036200000000002
+}

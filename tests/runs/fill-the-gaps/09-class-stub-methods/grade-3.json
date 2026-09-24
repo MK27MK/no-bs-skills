@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B only filled in the bodies of the existing __init__ and allow methods, adding no new methods/classes/helpers and renaming nothing. B's use of deque/Lock/defaultdict are stdlib imports used inline, not new definitions within RateLimiter, so it doesn't violate the reshaping check either. Both fully implemented the sliding-window logic (timestamp lists pruned to the window, capacity check, append on success) with no stub bodies or dangling undefined calls remaining, so unfinished is false for both.",
+  "cost_usd": 0.037883
+}

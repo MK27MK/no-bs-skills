@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "set Which test functions does the project have?",
+  "model": "claude-sonnet-5",
+  "message": "The project has 3 test functions across 2 files:\n\n- **tests/test_pricing.py**: `test_round_cents`\n- **tests/test_cart.py**: `test_total_adds_vat`, `test_total_with_discount`",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0571174,
+  "num_turns": 3,
+  "is_error": false
+}

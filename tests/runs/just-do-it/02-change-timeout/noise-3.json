@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "without-1",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they only change TIMEOUT from 30 to 60 in config.py, leaving the API_KEY and everything else untouched. No extra changes, no comments, no env var migration, and nothing broken.",
+  "cost_usd": 0.0298222
+}

@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill only the two existing stub bodies (parse_line and load) with inline logic, using no new function/class/method definitions, no renames, and no restored deleted code. Both fully implement the split/strip/int-conversion logic for parse_line and the header-skip/blank-line/comment-filter logic for load, leaving no stub bodies empty and no undefined calls. Neither introduces a helper like _clean or _parse_age. Functionally equivalent implementations differing only in minor style (readlines vs read_text, positional vs keyword Row args).</reason>\n</invoke>\n",
+  "cost_usd": 0.037443
+}

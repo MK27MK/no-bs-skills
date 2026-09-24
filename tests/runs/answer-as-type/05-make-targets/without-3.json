@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "In which order are the targets defined in the Makefile?",
+  "model": "claude-sonnet-5",
+  "message": "The targets are defined in this order: `test`, then `lint`.",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0545948,
+  "num_turns": 3,
+  "is_error": false
+}

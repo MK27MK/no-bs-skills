@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "int", "typed": false, "prompt": "How many Python files are there under src/?", "expected": "5"}

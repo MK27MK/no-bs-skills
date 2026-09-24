@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Write the bodies in stats.py. Empty input should raise ValueError.",
+  "model": "claude-sonnet-5",
+  "message": "Implemented `calcualte_avrage` and `calcualte_median` in stats.py, both raising `ValueError` on empty input (kept the existing function names as-is).",
+  "diff": "diff --git a/stats.py b/stats.py\nindex 29085f5..b473512 100644\n--- a/stats.py\n+++ b/stats.py\n@@ -1,6 +1,15 @@\n def calcualte_avrage(values: list[float]) -> float:\n-    ...\n+    if not values:\n+        raise ValueError(\"values must not be empty\")\n+    return sum(values) / len(values)\n \n \n def calcualte_median(values: list[float]) -> float:\n-    ...\n+    if not values:\n+        raise ValueError(\"values must not be empty\")\n+    ordered = sorted(values)\n+    n = len(ordered)\n+    mid = n // 2\n+    if n % 2 == 1:\n+        return ordered[mid]\n+    return (ordered[mid - 1] + ordered[mid]) / 2\n",
+  "wip_diff": "diff --git a/stats.py b/stats.py\nnew file mode 100644\nindex 0000000..29085f5\n--- /dev/null\n+++ b/stats.py\n@@ -0,0 +1,6 @@\n+def calcualte_avrage(values: list[float]) -> float:\n+    ...\n+\n+\n+def calcualte_median(values: list[float]) -> float:\n+    ...\n",
+  "cost_usd": 0.058657600000000004,
+  "num_turns": 3,
+  "is_error": false
+}

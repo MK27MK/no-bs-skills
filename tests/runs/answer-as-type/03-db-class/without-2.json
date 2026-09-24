@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "What is the name of the class that handles database connections?",
+  "model": "claude-sonnet-5",
+  "message": "`ConnectionPool` in `src/shop/db.py:5` \u2014 it wraps a SQLAlchemy engine and hands out `Session` objects.",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0562832,
+  "num_turns": 3,
+  "is_error": false
+}

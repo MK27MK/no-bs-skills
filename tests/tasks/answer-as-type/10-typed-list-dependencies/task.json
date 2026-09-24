@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "list", "typed": true, "prompt": "What are the names of the dependencies of the project?", "expected": ["sqlalchemy", "httpx"]}

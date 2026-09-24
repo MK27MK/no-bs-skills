@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "list Which functions does src/shop/pricing.py define, top to bottom?",
+  "model": "claude-sonnet-5",
+  "message": "`src/shop/pricing.py` defines, top to bottom:\n\n1. `with_vat(amount)`\n2. `discount(amount, percent)`\n3. `round_cents(amount)`\n4. `legacy_price(amount)`",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0490124,
+  "num_turns": 2,
+  "is_error": false
+}

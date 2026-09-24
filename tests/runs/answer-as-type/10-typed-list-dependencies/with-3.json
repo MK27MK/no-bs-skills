@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type list What are the names of the dependencies of the project?",
+  "model": "claude-sonnet-5",
+  "message": "1. sqlalchemy\n2. httpx",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.09008079999999999,
+  "num_turns": 6,
+  "is_error": false
+}

@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Fill in clamp.",
+  "model": "claude-sonnet-5",
+  "message": "Filled in `clamp` per the marker's own spec: raises `ValueError` when `low > high`, otherwise returns `value` bounded to `[low, high]` using builtin `min`/`max`. No new definitions or renames needed.",
+  "diff": "diff --git a/mathutil.py b/mathutil.py\nindex dd892d7..e613a1a 100644\n--- a/mathutil.py\n+++ b/mathutil.py\n@@ -1,3 +1,4 @@\n def clamp(value: float, low: float, high: float) -> float:\n-    # raise ValueError if low > high\n-    ...\n+    if low > high:\n+        raise ValueError(\"low must not be greater than high\")\n+    return max(low, min(value, high))\n",
+  "wip_diff": "diff --git a/mathutil.py b/mathutil.py\nindex e69de29..dd892d7 100644\n--- a/mathutil.py\n+++ b/mathutil.py\n@@ -0,0 +1,3 @@\n+def clamp(value: float, low: float, high: float) -> float:\n+    # raise ValueError if low > high\n+    ...\n",
+  "cost_usd": 0.06536700000000001,
+  "num_turns": 3,
+  "is_error": false
+}

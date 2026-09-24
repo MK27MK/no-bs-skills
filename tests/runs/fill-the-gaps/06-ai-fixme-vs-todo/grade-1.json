@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B produced identical diffs that correctly fix the sort key to (-score, name), removing the AI FIXME comment entirely and leaving load_scores (and its plain TODO) untouched. Neither added new definitions, renamed anything, or acted on a non-AI-prefixed marker, so reshaped is false for both. Both fully resolved the gap with no stub or lingering marker, so unfinished is false for both.</reason>\n</invoke>\n",
+  "cost_usd": 0.032465
+}

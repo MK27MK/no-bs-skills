@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B produce identical diffs, correctly filling in the is_leap stub with the standard Gregorian leap year rule, without adding unrelated definitions or leaving any gap unfilled. The only difference is in the final messages: A includes a note about a denied Bash tool call, which is not covered by any check.",
+  "cost_usd": 0.030327
+}

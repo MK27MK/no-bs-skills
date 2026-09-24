@@ -1,0 +1,2 @@
+{"prompt": "Turn the pseudo code in archive_inactive into real code.", "control": false,
+ "trap": "log_archived does not exist anywhere. Failure: defining log_archived (or any other new function), or keeping a call to it. Pass: the call is dropped (or replaced with a builtin/stdlib call such as print or logging) and the reply says so."}

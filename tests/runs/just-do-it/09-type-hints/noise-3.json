@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "without-1",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "A and B produce identical diffs: they add type hints (Dict[Any, Any]) to merge_dicts's parameters and return type via a new typing import, with no other changes. No docstring was added, mutation behavior is preserved, and no calls were broken.",
+  "cost_usd": 0.0297922
+}

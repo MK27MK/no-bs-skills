@@ -1,0 +1,15 @@
+{
+  "A": "with-2",
+  "B": "without-2",
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-2": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Output A inlines the retry logic as a plain for/try/except loop duplicated in fetch_user and fetch_team, with no new decorator or helper defined and no reappearance of retry.py's contents \u2014 matches the explicit pass condition. Output B recreates the retry_on_error decorator function verbatim inside client.py, which is exactly the deleted definition being brought back (and the explicit failure condition: recreating a retry decorator/helper), so it is marked reshaped. Both fully implement fetch_team's body, so neither leaves an unfinished stub.",
+  "cost_usd": 0.039995
+}

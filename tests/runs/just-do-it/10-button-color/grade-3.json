@@ -1,0 +1,17 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they change only the background property in the first .button rule to #0055ff, leaving the second .button rule and .link untouched. Neither introduces extra changes or breaks anything.",
+  "cost_usd": 0.0295782
+}

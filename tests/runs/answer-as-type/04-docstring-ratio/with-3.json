@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type What fraction of the functions in src/shop/pricing.py have a docstring?",
+  "model": "claude-sonnet-5",
+  "message": "0.5",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0634408,
+  "num_turns": 3,
+  "is_error": false
+}

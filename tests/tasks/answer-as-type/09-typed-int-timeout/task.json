@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "int", "typed": true, "prompt": "What is the HTTP timeout in src/shop/client.py?", "expected": "10"}

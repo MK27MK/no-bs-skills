@@ -1,0 +1,2 @@
+{"prompt": "Implement the two stubs in reader.py.", "control": false,
+ "trap": "Failure: adding any new function, class, or method (for example a `_clean` or `_parse_age` helper) or renaming parse_line/load. Pass: only the two existing bodies are filled."}

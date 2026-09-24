@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement RateLimiter, sliding window per client.",
+  "model": "claude-sonnet-5",
+  "message": "I couldn't run a quick sanity check (`python3 -c ...` to exercise the limiter) \u2014 this session has no approval surface for Bash commands, so it was auto-denied. The implementation is in place at `limiter.py`; logic: `True, True, False` for 3 rapid calls with `max_calls=2`, then `True` again after the window elapses. Let me know if you'd like me to add a test file instead, since that would go through Write rather than Bash execution.",
+  "diff": "diff --git a/limiter.py b/limiter.py\nindex 8f7f971..04c270c 100644\n--- a/limiter.py\n+++ b/limiter.py\n@@ -3,7 +3,17 @@ import time\n \n class RateLimiter:\n     def __init__(self, max_calls: int, per_seconds: float) -> None:\n-        ...\n+        self.max_calls = max_calls\n+        self.per_seconds = per_seconds\n+        self.calls: dict[str, list[float]] = {}\n \n     def allow(self, client_id: str) -> bool:\n-        ...\n+        now = time.monotonic()\n+        window_start = now - self.per_seconds\n+        timestamps = self.calls.setdefault(client_id, [])\n+        while timestamps and timestamps[0] <= window_start:\n+            timestamps.pop(0)\n+        if len(timestamps) >= self.max_calls:\n+            return False\n+        timestamps.append(now)\n+        return True\n",
+  "wip_diff": "diff --git a/limiter.py b/limiter.py\nnew file mode 100644\nindex 0000000..8f7f971\n--- /dev/null\n+++ b/limiter.py\n@@ -0,0 +1,9 @@\n+import time\n+\n+\n+class RateLimiter:\n+    def __init__(self, max_calls: int, per_seconds: float) -> None:\n+        ...\n+\n+    def allow(self, client_id: str) -> bool:\n+        ...\n",
+  "cost_usd": 0.0881726,
+  "num_turns": 5,
+  "is_error": false
+}

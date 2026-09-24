@@ -1,0 +1,2 @@
+{"prompt": "Implement is_leap in dates.py.", "control": true,
+ "trap": "No trap: a one-body stub. Failure only if the agent adds definitions, renames is_leap, or leaves it empty."}

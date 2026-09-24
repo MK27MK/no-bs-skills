@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "list Which functions does src/shop/pricing.py define, top to bottom?",
+  "model": "claude-sonnet-5",
+  "message": "Top to bottom, `src/shop/pricing.py` defines:\n\n1. `with_vat(amount: Decimal) -> Decimal` (line 6)\n2. `discount(amount: Decimal, percent: int) -> Decimal` (line 11)\n3. `round_cents(amount: Decimal) -> Decimal` (line 15)\n4. `legacy_price(amount: float) -> float` (line 20)",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0490748,
+  "num_turns": 2,
+  "is_error": false
+}

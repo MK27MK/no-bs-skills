@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type list Which functions does src/shop/pricing.py define, top to bottom?",
+  "model": "claude-sonnet-5",
+  "message": "1. with_vat\n2. discount\n3. round_cents\n4. legacy_price",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.064327,
+  "num_turns": 3,
+  "is_error": false
+}

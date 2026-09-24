@@ -1,0 +1,17 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs produced identical diffs, renaming getData to fetchUsers consistently in api.js and app.js, without touching the missing-await bug or making any other changes. The code remains functionally the same as before (still broken by the pre-existing missing await, but the request did not ask to fix that, and neither agent introduced new breakage from the rename itself since all call sites were updated consistently).",
+  "cost_usd": 0.046206
+}

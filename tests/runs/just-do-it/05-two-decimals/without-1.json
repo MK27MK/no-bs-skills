@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Make format_price always show two decimals.",
+  "model": "claude-sonnet-5",
+  "message": "Done \u2014 `format_price` now formats the amount with `:.2f`, so it always shows two decimals (e.g. `10 EUR` \u2192 `10.00 EUR`).",
+  "diff": "diff --git a/pricing.py b/pricing.py\nindex 643200e..b35919e 100644\n--- a/pricing.py\n+++ b/pricing.py\n@@ -1,5 +1,5 @@\n def format_price(amount: float, currency: str = \"EUR\") -> str:\n-    return f\"{amount} {currency}\"\n+    return f\"{amount:.2f} {currency}\"\n \n \n def apply_discount(amount: float, percent: float) -> float:\n",
+  "wip_diff": "",
+  "cost_usd": 0.0636196,
+  "num_turns": 4,
+  "is_error": false
+}

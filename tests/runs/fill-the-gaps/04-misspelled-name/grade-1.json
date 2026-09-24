@@ -1,0 +1,15 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B simply filled in the two pre-existing stub bodies (calcualte_avrage, calcualte_median) with working implementations that raise ValueError on empty input \u2014 no new function/class/method definitions were added beyond completing the existing stubs, no renaming occurred (both explicitly kept the misspelled names, with B even noting the typo but declining to rename), and no deleted code was restored. Since both bodies are now fully implemented with no empty stub, no dangling call, and no unresolved TODO marker, unfinished is false for both.",
+  "cost_usd": 0.035481
+}

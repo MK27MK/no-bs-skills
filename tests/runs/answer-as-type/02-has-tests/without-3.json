@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Does this project have tests?",
+  "model": "claude-sonnet-5",
+  "message": "Yes \u2014 it has a `tests/` directory with `test_cart.py` and `test_pricing.py`, using pytest (configured in `pyproject.toml`). Run them with `make test` (or `uv run pytest -q`).",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.05816400000000001,
+  "num_turns": 3,
+  "is_error": false
+}

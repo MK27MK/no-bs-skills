@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-1",
+  "without-2": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "without-1": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are byte-for-byte identical: they rename getData to fetchUsers in api.js and app.js, updating the import and call site consistently. Neither touches the pre-existing missing `await` bug in api.js, and neither introduces mismatched arguments or broken calls. No extra changes beyond the rename in either output.\"",
+  "cost_usd": 0.04693
+}

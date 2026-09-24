@@ -1,0 +1,15 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Output A filled the stub but also invented and defined a new function log_archived (a definition not present in the WIP), which the task explicitly marks as a failure condition; this counts as 'reshaped' (added a definition not previously held) while leaving nothing unfinished, since the call now resolves to a real definition. Output B filled the stub, dropped the call to the nonexistent log_archived, and replaced it with a builtin print call as instructed by the pass criteria \u2014 no new function/class/method definitions were added, so reshaped is false, and since the loop, threshold check, and sorted return are all implemented with no dangling undefined calls or empty stub, unfinished is false.",
+  "cost_usd": 0.041209
+}

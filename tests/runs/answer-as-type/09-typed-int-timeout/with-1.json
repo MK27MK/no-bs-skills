@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type int What is the HTTP timeout in src/shop/client.py?",
+  "model": "claude-sonnet-5",
+  "message": "10",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.06210360000000001,
+  "num_turns": 3,
+  "is_error": false
+}

@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/just-do-it Create an empty .nojekyll file at the repo root.",
+  "model": "claude-sonnet-5",
+  "message": "Done.",
+  "diff": "diff --git a/.nojekyll b/.nojekyll\nnew file mode 100644\nindex 0000000..e69de29\n",
+  "wip_diff": "",
+  "cost_usd": 0.0488056,
+  "num_turns": 2,
+  "is_error": false
+}

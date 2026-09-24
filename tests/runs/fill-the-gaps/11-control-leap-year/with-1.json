@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement is_leap in dates.py.",
+  "model": "claude-sonnet-5",
+  "message": "Implemented `is_leap` using the standard Gregorian rule (divisible by 4, and not by 100 unless also by 400), using only builtins \u2014 no new definitions needed.",
+  "diff": "diff --git a/dates.py b/dates.py\nindex a00f476..9162323 100644\n--- a/dates.py\n+++ b/dates.py\n@@ -1,2 +1,2 @@\n def is_leap(year: int) -> bool:\n-    ...\n+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n",
+  "wip_diff": "diff --git a/dates.py b/dates.py\nindex e69de29..a00f476 100644\n--- a/dates.py\n+++ b/dates.py\n@@ -0,0 +1,2 @@\n+def is_leap(year: int) -> bool:\n+    ...\n",
+  "cost_usd": 0.0650696,
+  "num_turns": 4,
+  "is_error": false
+}

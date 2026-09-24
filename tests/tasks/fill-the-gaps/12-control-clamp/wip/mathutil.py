@@ -1,0 +1,3 @@
+def clamp(value: float, low: float, high: float) -> float:
+    # raise ValueError if low > high
+    ...

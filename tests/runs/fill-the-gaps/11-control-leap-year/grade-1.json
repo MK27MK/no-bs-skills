@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both outputs produce identical diffs, simply filling the existing is_leap stub with the correct Gregorian leap-year expression. Neither adds new definitions, renames anything, or leaves the body unfinished.",
+  "cost_usd": 0.029893
+}

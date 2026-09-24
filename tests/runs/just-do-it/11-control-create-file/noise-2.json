@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "without-2",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs produce identical diffs, adding an empty .nojekyll file at the repo root with no extraneous changes.",
+  "cost_usd": 0.0280902
+}

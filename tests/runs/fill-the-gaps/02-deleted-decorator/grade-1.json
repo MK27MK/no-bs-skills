@@ -1,0 +1,15 @@
+{
+  "A": "with-1",
+  "B": "without-1",
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-1": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Output A replaces the retry_on_error import/decorator with inline for-loops in both fetch_user and fetch_team, and fills the existing fetch_team stub with a working body \u2014 no new definitions are added and nothing is left unfinished. Output B recreates the retry_on_error decorator function verbatim inside client.py, which is exactly the failure mode described (bringing back a deleted definition/module as a helper function) even though it's now in the same file rather than a separate module; fetch_team is fully implemented so nothing is left as a stub.",
+  "cost_usd": 0.05629000000000001
+}

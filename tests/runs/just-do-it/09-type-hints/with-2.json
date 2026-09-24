@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/just-do-it Add type hints to merge_dicts in helpers.py.",
+  "model": "claude-sonnet-5",
+  "message": "Done.",
+  "diff": "diff --git a/helpers.py b/helpers.py\nindex cecdeca..d2ca00b 100644\n--- a/helpers.py\n+++ b/helpers.py\n@@ -1,4 +1,4 @@\n-def merge_dicts(base, override):\n+def merge_dicts(base: dict, override: dict) -> dict:\n     for key, value in override.items():\n         base[key] = value\n     return base\n",
+  "wip_diff": "",
+  "cost_usd": 0.0643584,
+  "num_turns": 4,
+  "is_error": false
+}

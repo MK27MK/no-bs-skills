@@ -1,0 +1,1 @@
+{"base": "../_repo", "type": "list", "typed": true, "prompt": "Which functions does src/shop/pricing.py define, top to bottom?", "expected": ["with_vat", "discount", "round_cents", "legacy_price"]}

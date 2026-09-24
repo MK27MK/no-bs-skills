@@ -1,0 +1,17 @@
+{
+  "A": "with-2",
+  "B": "without-2",
+  "with-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs make the identical minimal change, adding :.2f format spec to the f-string in format_price, with no other modifications to the file. Neither touches apply_discount or switches to Decimal. The diffs are byte-for-byte identical, so the resulting code state is the same for both.",
+  "cost_usd": 0.0297482
+}

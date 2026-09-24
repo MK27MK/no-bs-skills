@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-3",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": true
+  },
+  "reason": "Both outputs only add type hints to merge_dicts without altering its mutating behavior or adding docstrings/tests/comments. A uses builtin `dict` types with no import needed; B imports `Dict, Any` from typing and uses `Dict[Any, Any]`, which is a different but still valid way to express the same type hints requested (not an out-of-scope change like a bug fix or extra feature). Neither diff breaks any caller since the function signature's runtime behavior is unchanged. The diffs leave visibly different code (an added import statement and different annotation syntax in B), so different_result is true.",
+  "cost_usd": 0.0342782
+}

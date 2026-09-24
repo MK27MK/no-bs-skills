@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "without-1",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both A and B produce identical diffs: they add a --verbose flag with action=\"store_true\" and modify logging.basicConfig to use logging.DEBUG if args.verbose else logging.INFO. This correctly implements the requested feature without adding help strings, descriptions, or any other refactors. The code remains functionally correct with no breakage. Since the diffs are byte-for-byte identical, the resulting code state is the same for both outputs.",
+  "cost_usd": 0.030694199999999998
+}

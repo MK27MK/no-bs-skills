@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "list What are the names of the dependencies of the project?",
+  "model": "claude-sonnet-5",
+  "message": "Dependencies (from `pyproject.toml`):\n\n- **sqlalchemy** (>=2.0)\n- **httpx** (>=0.27)\n\nDev-only: **pytest** (>=8)",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.057161,
+  "num_turns": 3,
+  "is_error": false
+}

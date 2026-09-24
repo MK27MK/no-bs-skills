@@ -1,0 +1,15 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill in the two stub bodies with working implementations that raise ValueError on empty input, and both keep the misspelled names calcualte_avrage/calcualte_median unchanged. Neither adds new function/class/method definitions beyond what existed, renames anything, restores deleted content, or acts on a TODO/FIXME marker, so reshaped is false for both. Both bodies are fully implemented (no remaining stubs or dangling calls), so unfinished is false for both. Note: Output B's final message references \"lock_definitions\" and \"lock_names\" rules that don't appear anywhere in the actual request or repo \u2014 this appears to be a hallucinated framing, though it doesn't affect the diff content itself, which is correct and equivalent to A's.",
+  "cost_usd": 0.037315
+}

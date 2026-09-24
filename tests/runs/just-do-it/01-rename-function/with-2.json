@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/just-do-it Rename getData to fetchUsers.",
+  "model": "claude-sonnet-5",
+  "message": "Done.",
+  "diff": "diff --git a/api.js b/api.js\nindex 1789cdd..076072e 100644\n--- a/api.js\n+++ b/api.js\n@@ -1,6 +1,6 @@\n const BASE = \"https://api.example.com\";\n \n-export async function getData(page) {\n+export async function fetchUsers(page) {\n   const response = fetch(`${BASE}/users?page=${page}`);\n   return response.json();\n }\ndiff --git a/app.js b/app.js\nindex 9e5df23..602eb7e 100644\n--- a/app.js\n+++ b/app.js\n@@ -1,4 +1,4 @@\n-import { getData } from \"./api.js\";\n+import { fetchUsers } from \"./api.js\";\n \n-const users = await getData(1);\n+const users = await fetchUsers(1);\n console.log(users.length);\n",
+  "wip_diff": "",
+  "cost_usd": 0.0718954,
+  "num_turns": 6,
+  "is_error": false
+}

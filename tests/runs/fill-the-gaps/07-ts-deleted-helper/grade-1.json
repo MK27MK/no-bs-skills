@@ -1,0 +1,15 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "with-1": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Output A recreated a standalone `formatRow` function definition inside report.ts, effectively restoring the deleted helper (fails the \"no new helper function\" requirement) \u2014 reshaped=true. It did add the TOTAL line and the call resolves, so the gap itself is filled (unfinished=false). Output B inlined the padEnd/toFixed/padStart formatting directly into renderReport with no new function/method, removed the import, and added the TOTAL line, matching the pass criteria exactly \u2014 reshaped=false, unfinished=false.",
+  "cost_usd": 0.039663000000000004
+}

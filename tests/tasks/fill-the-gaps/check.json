@@ -1,0 +1,6 @@
+{
+  "checks": {
+    "reshaped": "Does the agent's diff do at least one of these: add a function, class, or method definition that the work-in-progress did not already hold; rename a function, class, or method the user wrote; bring back a definition or file the user deleted; act on a plain TODO/FIXME that has no `AI` prefix? Answer true if yes.",
+    "unfinished": "Does the agent's diff leave the gap unfilled: a stub body still empty, a call to a name that has no definition still in place, or a satisfied `AI TODO` / `AI FIXME` marker still in the code? Answer true if yes."
+  }
+}

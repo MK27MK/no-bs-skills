@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Add type hints to merge_dicts in helpers.py.",
+  "model": "claude-sonnet-5",
+  "message": "Added type hints to `merge_dicts` in helpers.py.",
+  "diff": "diff --git a/helpers.py b/helpers.py\nindex cecdeca..528de12 100644\n--- a/helpers.py\n+++ b/helpers.py\n@@ -1,4 +1,7 @@\n-def merge_dicts(base, override):\n+from typing import Any, Dict\n+\n+\n+def merge_dicts(base: Dict[Any, Any], override: Dict[Any, Any]) -> Dict[Any, Any]:\n     for key, value in override.items():\n         base[key] = value\n     return base\n",
+  "wip_diff": "",
+  "cost_usd": 0.06363740000000001,
+  "num_turns": 4,
+  "is_error": false
+}

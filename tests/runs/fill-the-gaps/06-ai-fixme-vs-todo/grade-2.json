@@ -1,0 +1,15 @@
+{
+  "A": "with-2",
+  "B": "without-2",
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both outputs produced identical diffs: they replaced the sort key with sorted(scores, key=lambda name: (-scores[name], name)), correctly sorting by descending score then alphabetically by name, and removed the 'AI FIXME' comment entirely. Neither diff touches load_scores or the plain TODO. Neither added new functions/classes/methods, renamed anything, restored deleted code, or acted on the plain TODO. No stub or unresolved marker remains. Both final messages accurately describe the fix and correctly note the plain TODO was left alone.",
+  "cost_usd": 0.033945
+}

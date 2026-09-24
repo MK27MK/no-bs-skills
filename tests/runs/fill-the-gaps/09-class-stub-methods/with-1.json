@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement RateLimiter, sliding window per client.",
+  "model": "claude-sonnet-5",
+  "message": "I couldn't run a sanity check \u2014 Bash execution is blocked in this session with no approval surface \u2014 but the implementation is straightforward enough to verify by inspection.\n\nImplemented `limiter.py` per `api.py`'s existing contract (`RateLimiter(max_calls, per_seconds)`, `allow(client_id) -> bool`), no new definitions or renames:\n\n- Each client gets a `deque` of call timestamps (sliding window log).\n- `allow` evicts timestamps older than `per_seconds`, then admits the call if under `max_calls`.\n- Used only stdlib (`time.monotonic`, `collections.deque`/`defaultdict`) \u2014 no new functions/classes/methods added, and both existing names kept as-is.",
+  "diff": "diff --git a/limiter.py b/limiter.py\nindex 8f7f971..d23a650 100644\n--- a/limiter.py\n+++ b/limiter.py\n@@ -1,9 +1,19 @@\n import time\n+from collections import defaultdict, deque\n \n \n class RateLimiter:\n     def __init__(self, max_calls: int, per_seconds: float) -> None:\n-        ...\n+        self.max_calls = max_calls\n+        self.per_seconds = per_seconds\n+        self.calls: dict[str, deque] = defaultdict(deque)\n \n     def allow(self, client_id: str) -> bool:\n-        ...\n+        now = time.monotonic()\n+        window = self.calls[client_id]\n+        while window and now - window[0] >= self.per_seconds:\n+            window.popleft()\n+        if len(window) >= self.max_calls:\n+            return False\n+        window.append(now)\n+        return True\n",
+  "wip_diff": "diff --git a/limiter.py b/limiter.py\nnew file mode 100644\nindex 0000000..8f7f971\n--- /dev/null\n+++ b/limiter.py\n@@ -0,0 +1,9 @@\n+import time\n+\n+\n+class RateLimiter:\n+    def __init__(self, max_calls: int, per_seconds: float) -> None:\n+        ...\n+\n+    def allow(self, client_id: str) -> bool:\n+        ...\n",
+  "cost_usd": 0.10289,
+  "num_turns": 6,
+  "is_error": false
+}

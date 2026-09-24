@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type set Which test functions does the project have?",
+  "model": "claude-sonnet-5",
+  "message": "- test_total_adds_vat\n- test_total_with_discount\n- test_round_cents",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.07124,
+  "num_turns": 4,
+  "is_error": false
+}

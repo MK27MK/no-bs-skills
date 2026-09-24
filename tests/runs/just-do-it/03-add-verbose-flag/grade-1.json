@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "with-1",
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they add a --verbose flag and set logging.basicConfig to DEBUG when set, else INFO. No unrelated changes (no help strings, descriptions, or refactors) and no broken code in either.",
+  "cost_usd": 0.030194199999999997
+}

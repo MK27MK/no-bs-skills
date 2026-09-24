@@ -1,0 +1,17 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they add a --verbose flag with action=\"store_true\" and set logging.basicConfig level to DEBUG if args.verbose else INFO. No help strings, descriptions, or other refactors were added, and the change is correct and functional.",
+  "cost_usd": 0.0302562
+}

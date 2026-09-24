@@ -1,0 +1,15 @@
+{
+  "A": "with-2",
+  "B": "without-2",
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill the slugify stub body in place using only stdlib (re, unicodedata) imported at module level; neither adds a new function/class/method, renames anything, restores deleted code, or acts on a plain TODO/FIXME. Both fully implement the body (no remaining ... or undefined calls), so unfinished is false for both. No distinguishing pair-level checks apply.",
+  "cost_usd": 0.037423
+}

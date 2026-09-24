@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B only filled in the existing `slugify` stub body (adding stdlib imports `re`/`unicodedata`, which are not new function/class/method definitions) and did not rename, restore, or add any new definitions/helpers, and did not touch any plain TODO/FIXME (only the AI NOTE was present) \u2014 so reshaped=false for both. Both produced complete, working implementations (NFKD normalize + ASCII strip, lowercase, regex collapse of non-alphanumerics to '-', strip leading/trailing '-', truncate to max_length with trailing dash cleanup) with no empty stub or dangling undefined call \u2014 so unfinished=false for both. No pair-level checks were specified.",
+  "cost_usd": 0.041285
+}

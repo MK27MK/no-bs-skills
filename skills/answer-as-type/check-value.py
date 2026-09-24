@@ -27,14 +27,46 @@ TRAILING_PROSE = re.compile(r"[.!?]$")
 
 MAX_ITEM_WORDS = 12
 
-ARTICLE_OF_TYPE = {"int": "an", "bool": "a", "float": "a", "str": "a", "list": "a", "set": "a"}
+ARTICLE_OF_TYPE = {
+    "int": "an",
+    "bool": "a",
+    "float": "a",
+    "str": "a",
+    "list": "a",
+    "set": "a",
+}
 
 TYPE_OF_QUESTION = (
-    (re.compile(r"^\s*(is|are|was|were|does|do|did|can|should|has|have)\b", re.I), "bool"),
-    (re.compile(r"\b(how many|how much|count of|line number|index of)\b", re.I), "int"),
-    (re.compile(r"\b(ratio|percentage|average|share of|fraction|duration)\b", re.I), "float"),
-    (re.compile(r"\b(steps|procedure|ranking|in which order|how do i)\b", re.I), "list"),
-    (re.compile(r"\b(two|three|four|both|which ones|what are|name the)\b", re.I), "set"),
+    (
+        re.compile(
+            r"^\s*(is|are|was|were|does|do|did|can|should|has|have)\b", re.IGNORECASE
+        ),
+        "bool",
+    ),
+    (
+        re.compile(
+            r"\b(how many|how much|count of|line number|index of)\b", re.IGNORECASE
+        ),
+        "int",
+    ),
+    (
+        re.compile(
+            r"\b(ratio|percentage|average|share of|fraction|duration)\b", re.IGNORECASE
+        ),
+        "float",
+    ),
+    (
+        re.compile(
+            r"\b(steps|procedure|ranking|in which order|how do i)\b", re.IGNORECASE
+        ),
+        "list",
+    ),
+    (
+        re.compile(
+            r"\b(two|three|four|both|which ones|what are|name the)\b", re.IGNORECASE
+        ),
+        "set",
+    ),
 )
 
 
@@ -44,6 +76,9 @@ def name_with_article(kind: str) -> str:
 
 def infer_type(question: str) -> str:
     """The return type that the wording of the question asks for."""
+    first_word = question.split(maxsplit=1)[:1]
+    if first_word and first_word[0] in CHECK_OF_TYPE:
+        return first_word[0]
     for pattern, name in TYPE_OF_QUESTION:
         if pattern.search(question):
             return name
@@ -52,7 +87,9 @@ def infer_type(question: str) -> str:
 
 def check_scalar(pattern: re.Pattern, name: str, shape: str, value: str) -> list[str]:
     if "\n" in value:
-        return [f"{name_with_article(name)} is one line, and this value has {value.count(chr(10)) + 1}"]
+        return [
+            f"{name_with_article(name)} is one line, and this value has {value.count(chr(10)) + 1}"
+        ]
     if pattern.match(value):
         return []
     return [f"{name_with_article(name)} reads {shape}, and this value reads `{value}`"]
@@ -80,17 +117,25 @@ def check_items(pattern: re.Pattern, name: str, shape: str, value: str) -> list[
     for line in lines:
         match = pattern.match(line)
         if match is None:
-            findings.append(f"{name_with_article(name)} item reads {shape}, and this line reads `{line}`")
+            findings.append(
+                f"{name_with_article(name)} item reads {shape}, and this line reads `{line}`"
+            )
             continue
         item = match.group("item")
         if TRAILING_PROSE.search(item):
-            findings.append(f"{name_with_article(name)} item carries no explanation: `{item}`")
+            findings.append(
+                f"{name_with_article(name)} item carries no explanation: `{item}`"
+            )
         if len(item.split()) > MAX_ITEM_WORDS:
-            findings.append(f"{name_with_article(name)} item runs to {MAX_ITEM_WORDS} words at most: `{item}`")
+            findings.append(
+                f"{name_with_article(name)} item runs to {MAX_ITEM_WORDS} words at most: `{item}`"
+            )
         if name == "list":
             numbers.append(int(match.group("number")))
     if name == "list" and numbers and numbers != list(range(1, len(numbers) + 1)):
-        findings.append(f"a list numbers its items 1 to {len(numbers)}, and this one reads {numbers}")
+        findings.append(
+            f"a list numbers its items 1 to {len(numbers)}, and this one reads {numbers}"
+        )
     return findings
 
 
@@ -114,7 +159,9 @@ def find_faults(kind: str, value: str) -> list[str]:
             line for line in value.splitlines() if not CODE_FENCE.match(line)
         ).strip()
     if kind in ("int", "float") and THOUSANDS_SEPARATOR.match(value):
-        findings.append(f"{name_with_article(kind)} carries no thousands separator: `{value}`")
+        findings.append(
+            f"{name_with_article(kind)} carries no thousands separator: `{value}`"
+        )
         return findings
     findings.extend(CHECK_OF_TYPE[kind](value))
     return findings

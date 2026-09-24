@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "with-2": {
+    "extra_changes": false,
+    "broken": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both outputs produce identical diffs: a clean rename of getData to fetchUsers in api.js and app.js, with no fix to the missing await bug and no other extraneous changes.",
+  "cost_usd": 0.045885999999999996
+}

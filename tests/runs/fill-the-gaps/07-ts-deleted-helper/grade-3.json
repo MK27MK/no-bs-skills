@@ -1,0 +1,15 @@
+{
+  "A": "without-3",
+  "B": "with-3",
+  "without-3": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "A recreates a `formatRow` helper function (defined locally in report.ts) \u2014 exactly the failure case the task warns against, even though the import from ./format is removed and a TOTAL line is added; this counts as adding a function definition the WIP didn't hold, so reshaped=true. B inlines the row formatting directly inside the map/template-literal expressions with no new function/class/method definition, removes the import, and adds the TOTAL line \u2014 reshaped=false. Both agents fully filled the gap (TOTAL line present, no stubs or dangling calls), so unfinished=false for both. No pair-level checks were listed.",
+  "cost_usd": 0.039315
+}

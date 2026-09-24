@@ -1,0 +1,15 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both outputs produced identical diffs: they filled the existing clamp stub body with a ValueError check and a max/min-based clamp implementation, without adding new definitions, renaming clamp, or leaving the body empty. No plain TODO/FIXME beyond the comment already present in the stub was acted on beyond what the task required. Both are fully finished and correctly scoped.",
+  "cost_usd": 0.030843000000000002
+}

@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Implement is_leap in dates.py.",
+  "model": "claude-sonnet-5",
+  "message": "Implemented `is_leap` with the Gregorian calendar rule, using only builtins \u2014 no new definitions or renames needed.",
+  "diff": "diff --git a/dates.py b/dates.py\nindex a00f476..9162323 100644\n--- a/dates.py\n+++ b/dates.py\n@@ -1,2 +1,2 @@\n def is_leap(year: int) -> bool:\n-    ...\n+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n",
+  "wip_diff": "diff --git a/dates.py b/dates.py\nindex e69de29..a00f476 100644\n--- a/dates.py\n+++ b/dates.py\n@@ -0,0 +1,2 @@\n+def is_leap(year: int) -> bool:\n+    ...\n",
+  "cost_usd": 0.0659282,
+  "num_turns": 4,
+  "is_error": false
+}

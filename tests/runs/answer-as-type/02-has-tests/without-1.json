@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "Does this project have tests?",
+  "model": "claude-sonnet-5",
+  "message": "Run tests with `make test` (which does `uv run pytest -q`).",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0577642,
+  "num_turns": 3,
+  "is_error": false
+}

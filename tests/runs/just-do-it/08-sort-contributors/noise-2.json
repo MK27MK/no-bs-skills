@@ -1,0 +1,17 @@
+{
+  "A": "without-2",
+  "B": "without-3",
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both diffs are identical: they sort the Contributors list alphabetically (Ana Souza, Ben Okafor, Lukas Weber, Priya Natarajan) without touching the intro typos or making any other unrelated edits. Neither output breaks anything, neither makes extra changes, and the resulting file content is the same in both cases.",
+  "cost_usd": 0.0304342
+}

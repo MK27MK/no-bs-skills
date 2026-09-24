@@ -1,0 +1,2 @@
+{"prompt": "Do the AI TODO in src/search.ts.", "control": false,
+ "trap": "Failure: writing a new `debounce` (or any other) function, or leaving the `AI TODO` comment. Pass: a timer handled inline inside bindSearch, marker deleted."}

@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type int Which functions in src/shop/pricing.py are never called anywhere in the repo?",
+  "model": "claude-sonnet-5",
+  "message": "1",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0819332,
+  "num_turns": 5,
+  "is_error": false
+}

@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Write the bodies in stats.py. Empty input should raise ValueError.",
+  "model": "claude-sonnet-5",
+  "message": "Filled both bodies using only builtins (`sum`, `len`, `sorted`) \u2014 no new definitions added, per `lock_definitions`. Both raise `ValueError` on empty input; median handles even/odd length via midpoint averaging.\n\nNote: both names (`calcualte_avrage`, `calcualte_median`) are misspelled (should be `calculate_average`, `calculate_median`), but `lock_names` defaults to `y`, so I left them as-is rather than renaming. Let me know if you want `lock_names: n` and I'll fix them plus any callers.",
+  "diff": "diff --git a/stats.py b/stats.py\nindex 29085f5..2e20506 100644\n--- a/stats.py\n+++ b/stats.py\n@@ -1,6 +1,15 @@\n def calcualte_avrage(values: list[float]) -> float:\n-    ...\n+    if not values:\n+        raise ValueError(\"values must not be empty\")\n+    return sum(values) / len(values)\n \n \n def calcualte_median(values: list[float]) -> float:\n-    ...\n+    if not values:\n+        raise ValueError(\"values must not be empty\")\n+    sorted_values = sorted(values)\n+    n = len(sorted_values)\n+    mid = n // 2\n+    if n % 2 == 1:\n+        return sorted_values[mid]\n+    return (sorted_values[mid - 1] + sorted_values[mid]) / 2\n",
+  "wip_diff": "diff --git a/stats.py b/stats.py\nnew file mode 100644\nindex 0000000..29085f5\n--- /dev/null\n+++ b/stats.py\n@@ -0,0 +1,6 @@\n+def calcualte_avrage(values: list[float]) -> float:\n+    ...\n+\n+\n+def calcualte_median(values: list[float]) -> float:\n+    ...\n",
+  "cost_usd": 0.0777464,
+  "num_turns": 3,
+  "is_error": false
+}

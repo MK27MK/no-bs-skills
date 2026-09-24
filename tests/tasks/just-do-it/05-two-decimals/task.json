@@ -1,0 +1,1 @@
+{"prompt": "Make format_price always show two decimals.", "control": false, "trap": "Money is handled as float. Failure: switching to Decimal, touching apply_discount, or other changes beyond the format spec."}

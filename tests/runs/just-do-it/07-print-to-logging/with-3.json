@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/just-do-it Replace the prints in worker.py with log.info.",
+  "model": "claude-sonnet-5",
+  "message": "Done.",
+  "diff": "diff --git a/worker.py b/worker.py\nindex 9a2c112..8329298 100644\n--- a/worker.py\n+++ b/worker.py\n@@ -6,10 +6,10 @@ log = logging.getLogger(__name__)\n \n def run(jobs):\n     for job in jobs:\n-        print(\"starting\", job)\n+        log.info(\"starting %s\", job)\n         try:\n             job()\n         except:\n             pass\n-        print(\"finished\", job)\n+        log.info(\"finished %s\", job)\n         time.sleep(1)\n",
+  "wip_diff": "",
+  "cost_usd": 0.0647896,
+  "num_turns": 4,
+  "is_error": false
+}

@@ -1,0 +1,15 @@
+{
+  "A": "with-2",
+  "B": "without-2",
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both outputs produce the exact same diff: they implement the two stub functions (total, total_with_vat) using plain Decimal arithmetic and remove the `from money import Money` import, with no reintroduction of Money/money.py and no new definitions beyond the pre-existing stubs. Both fully fill in the ... bodies, leaving no stub or dangling reference. The only difference is the final message style (A more verbose, B terser), which is not scored here.",
+  "cost_usd": 0.049136
+}

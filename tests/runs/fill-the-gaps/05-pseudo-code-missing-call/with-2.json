@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/fill-the-gaps Turn the pseudo code in archive_inactive into real code.",
+  "model": "claude-sonnet-5",
+  "message": "Implemented `archive_inactive`: it flags each non-archived user whose `last_login` is more than 90 days before `now`, mutates `archived = True`, and returns the newly archived emails sorted.\n\nBoth locks default to `y`, and `log_archived` has no definition anywhere in the repo \u2014 I deleted that call rather than inventing the function; nothing replaces it since it was pure logging with no return value the rest of the code depends on. No new definitions or renames were needed otherwise.",
+  "diff": "diff --git a/accounts.py b/accounts.py\nindex 6a34059..da994b2 100644\n--- a/accounts.py\n+++ b/accounts.py\n@@ -10,8 +10,9 @@ class User:\n \n \n def archive_inactive(users: list[User], now: datetime) -> list[str]:\n-    # for each user not archived yet:\n-    #     if now - last_login > 90 days -> archived = True\n-    # log_archived(emails)\n-    # return the emails archived in this run, sorted\n-    ...\n+    archived_emails = []\n+    for user in users:\n+        if not user.archived and (now - user.last_login).days > 90:\n+            user.archived = True\n+            archived_emails.append(user.email)\n+    return sorted(archived_emails)\n",
+  "wip_diff": "diff --git a/accounts.py b/accounts.py\nindex 1a07a29..6a34059 100644\n--- a/accounts.py\n+++ b/accounts.py\n@@ -7,3 +7,11 @@ class User:\n     email: str\n     last_login: datetime\n     archived: bool = False\n+\n+\n+def archive_inactive(users: list[User], now: datetime) -> list[str]:\n+    # for each user not archived yet:\n+    #     if now - last_login > 90 days -> archived = True\n+    # log_archived(emails)\n+    # return the emails archived in this run, sorted\n+    ...\n",
+  "cost_usd": 0.09112800000000001,
+  "num_turns": 5,
+  "is_error": false
+}

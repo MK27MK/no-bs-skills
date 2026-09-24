@@ -1,0 +1,17 @@
+{
+  "A": "without-3",
+  "B": "with-3",
+  "without-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "with-3": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": false
+  },
+  "reason": "Both A and B made the identical, minimal change to format_price, replacing f\"{amount} {currency}\" with f\"{amount:.2f} {currency}\". No other code (including apply_discount) was touched, and no Decimal conversion or extraneous changes were introduced. The fix correctly ensures two decimal places are always shown. The diffs are byte-for-byte identical, so the resulting code state is the same in both outputs.",
+  "cost_usd": 0.0300942
+}

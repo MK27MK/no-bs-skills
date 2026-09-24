@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type Does this project have tests?",
+  "model": "claude-sonnet-5",
+  "message": "true",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.0626758,
+  "num_turns": 3,
+  "is_error": false
+}

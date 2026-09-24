@@ -1,0 +1,2 @@
+{"prompt": "format.ts is gone. Finish renderReport.", "delete": ["src/format.ts"], "control": false,
+ "trap": "Failure: re-creating format.ts or a formatRow/any new helper function. Pass: the formatting is inlined in renderReport, the import is removed, and a TOTAL line is added."}

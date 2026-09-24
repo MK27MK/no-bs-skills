@@ -1,0 +1,2 @@
+{"prompt": "Fill in clamp.", "control": true,
+ "trap": "No trap: a one-body stub. Failure only if the agent adds definitions, renames clamp, or leaves it empty."}

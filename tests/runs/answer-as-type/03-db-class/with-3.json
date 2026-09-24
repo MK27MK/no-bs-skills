@@ -1,0 +1,11 @@
+{
+  "arm": "with",
+  "prompt": "/answer-as-type What is the name of the class that handles database connections?",
+  "model": "claude-sonnet-5",
+  "message": "ConnectionPool",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.07624299999999999,
+  "num_turns": 5,
+  "is_error": false
+}

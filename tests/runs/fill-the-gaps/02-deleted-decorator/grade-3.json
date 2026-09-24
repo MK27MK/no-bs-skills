@@ -1,0 +1,15 @@
+{
+  "A": "without-3",
+  "B": "with-3",
+  "without-3": {
+    "reshaped": true,
+    "unfinished": false
+  },
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Output A moved retry_on_error into client.py essentially unchanged as a standalone decorator function/closure \u2014 this recreates the exact helper function the user deleted and explicitly said they didn't want, which the task flags as a failure condition (reshaped=true). fetch_team is fully implemented, not a stub (unfinished=false). Output B correctly inlined the retry logic as a plain for-loop inside both fetch_user and fetch_team with no helper function or decorator recreated, matching the requested pattern (reshaped=false); fetch_team is fully implemented, not left as a stub (unfinished=false).</reason>\n</invoke>\n",
+  "cost_usd": 0.055756
+}

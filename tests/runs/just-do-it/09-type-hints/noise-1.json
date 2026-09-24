@@ -1,0 +1,17 @@
+{
+  "A": "without-1",
+  "B": "without-2",
+  "without-1": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "without-2": {
+    "broken": false,
+    "extra_changes": false
+  },
+  "pair": {
+    "different_result": true
+  },
+  "reason": "Both outputs add type hints to merge_dicts without altering its mutating behavior or adding docstrings/tests. A imports typing.Any/Dict and uses Dict[Any, Any]; B uses builtin lowercase dict with no import needed. Neither is broken, and the import in A is necessary to support the type hints rather than an unrelated change. The diffs leave the code in textually and semantically different states (different type hint syntax and an added import), so different_result is true.\"",
+  "cost_usd": 0.0322122
+}

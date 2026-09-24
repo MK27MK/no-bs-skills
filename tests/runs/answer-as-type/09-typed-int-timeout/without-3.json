@@ -1,0 +1,11 @@
+{
+  "arm": "without",
+  "prompt": "int What is the HTTP timeout in src/shop/client.py?",
+  "model": "claude-sonnet-5",
+  "message": "The HTTP timeout is **10 seconds** \u2014 `src/shop/client.py:3` defines `TIMEOUT_SECONDS = 10`, used in the `httpx.get()` call on line 7.",
+  "diff": "",
+  "wip_diff": "",
+  "cost_usd": 0.047687,
+  "num_turns": 2,
+  "is_error": false
+}

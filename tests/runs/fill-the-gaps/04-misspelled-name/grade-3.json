@@ -1,0 +1,15 @@
+{
+  "A": "with-3",
+  "B": "without-3",
+  "with-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "without-3": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B fill in the two stub bodies with equivalent, correct implementations (sum/len for average; sort+midpoint for median) using only builtins, raising ValueError on empty input in both functions. Neither diff adds any new function/class/method definitions, renames calcualte_avrage/calcualte_median, restores deleted code, or touches an AI-prefixed TODO. Both leave no stub bodies (`...`) or undefined calls remaining, so unfinished=false for both. Output A's final message references \"lock_definitions\" and \"lock_names\" settings that were never part of the actual request/instructions \u2014 an odd fabricated justification \u2014 but since this only appears in the natural-language reply and not in the diff, it doesn't affect the reshaped/unfinished checks, which are diff-based. No pair-level checks were specified for this task.</reason>\n</invoke>\n",
+  "cost_usd": 0.037625
+}

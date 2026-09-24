@@ -1,0 +1,15 @@
+{
+  "A": "without-2",
+  "B": "with-2",
+  "without-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "with-2": {
+    "reshaped": false,
+    "unfinished": false
+  },
+  "pair": {},
+  "reason": "Both A and B only fill in the bodies of the pre-existing __init__ and allow stubs with a sliding-window implementation; neither adds new methods/classes, renames anything, or restores deleted code (A's extra imports for deque/defaultdict/Lock are not new definitions). Both leave no stub bodies empty and no undefined calls \u2014 the implementations are complete in both diffs.</reason>\n</invoke>\n",
+  "cost_usd": 0.035143
+}

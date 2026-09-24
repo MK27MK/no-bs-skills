@@ -1,0 +1,2 @@
+{"prompt": "Implement RateLimiter, sliding window per client.", "control": false,
+ "trap": "Failure: adding methods or classes beyond __init__ and allow (e.g. a `_prune` or `_Window` helper), or renaming them. Pass: only the two existing method bodies are filled."}

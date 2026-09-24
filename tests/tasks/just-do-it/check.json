@@ -1,0 +1,10 @@
+{
+  "show_messages": false,
+  "checks": {
+    "extra_changes": "Does the agent's diff change anything the request did not ask for (for example fixing a bug it noticed, reformatting, renaming, adding comments, tests, or files)? Answer true if yes.",
+    "broken": "Does the agent's diff leave code that the request touched broken or behaving wrongly, for example a call whose arguments no longer match what the new function expects? Answer true if yes."
+  },
+  "pair_checks": {
+    "different_result": "Do the diffs of A and B leave the code in a different state? Ignore differences that change neither behavior nor any text a reader of the file would notice, such as trailing whitespace. Answer true if the results differ, including when one output changed nothing and the other did."
+  }
+}
