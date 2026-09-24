@@ -25,18 +25,91 @@ I...
 
 ## Install
 
-In Claude Code, register this repo as a plugin marketplace, then install the plugin from it:
+The skills follow the [Agent Skills](https://agentskills.io) format. Each one is a folder
+under [`skills/`](skills/).
+
+### Any agent, with the skills CLI
+
+```
+npx skills add MK27MK/no-bs-skills
+```
+
+The [skills CLI](https://github.com/vercel-labs/skills) asks which skills and which agents
+to install for. To skip the questions, name them:
+
+```
+npx skills add MK27MK/no-bs-skills --skill '*' -a codex -a cursor -y
+```
+
+Codex, Cursor, OpenCode, and the other agents that read `.agents/skills/` share one copy
+there, in the current project. Claude Code gets its copy in `.claude/skills/`. Add `-g` to
+install for your user instead, in `~/.agents/skills/` and `~/.claude/skills/`. The CLI's
+[list of agents](https://github.com/vercel-labs/skills#supported-agents) gives the name to
+pass to `-a` for each one.
+
+### Claude Code, as a plugin
+
+Register this repo as a plugin marketplace, then install the plugin from it:
 
 ```
 /plugin marketplace add MK27MK/no-bs-skills
 /plugin install no-bs-skills@no-bs-skills
 ```
 
-Run `/reload-plugins` if the install summary asks for it. The skills are namespaced under the plugin name:
+Run `/reload-plugins` if the install summary asks for it. The plugin puts the skills under
+its name:
 
 ```
 /no-bs-skills:no-bs-answer how does the auth middleware decide who is logged in?
 ```
+
+### By hand
+
+Copy the folders you want from [`skills/`](skills/) into the folder your agent reads:
+
+| Agent | Project | User |
+| :-- | :-- | :-- |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Codex | `.agents/skills/` | `~/.agents/skills/` |
+| Cursor | `.agents/skills/` or `.cursor/skills/` | `~/.agents/skills/` or `~/.cursor/skills/` |
+| OpenCode | `.agents/skills/` or `.opencode/skills/` | `~/.agents/skills/` or `~/.config/opencode/skills/` |
+
+The paths come from the docs of
+[Codex](https://learn.chatgpt.com/docs/build-skills),
+[Cursor](https://cursor.com/docs/context/skills), and
+[OpenCode](https://opencode.ai/docs/skills/).
+
+### Calling a skill
+
+| Agent | How |
+| :-- | :-- |
+| Claude Code, plugin | `/no-bs-skills:<skill> <request>` |
+| Claude Code, skills CLI or by hand | `/<skill> <request>` |
+| Codex | `$<skill> <request>`, or pick it from `/skills` |
+| Cursor | `/<skill> <request>` |
+| OpenCode | Ask for the skill by name. The agent loads it with its `skill` tool. |
+
+The examples below use the plugin form.
+
+### What works where
+
+The skills were written for Claude Code. Some parts of them are Claude Code features:
+
+- **Called by hand only.** Every skill sets `disable-model-invocation: true`, so Claude Code
+  and Cursor load it only when you call it. Codex reads the same rule from
+  `agents/openai.yaml` in each skill folder. OpenCode ignores both, and can load a skill on
+  its own when the request matches its description.
+- **Arguments.** Claude Code fills named arguments from the words after the skill name:
+  the type of `answer-as-type`, the locks of `fill-the-gaps`, the topics of
+  `add-didactic-comments`, the `example` switch of `no-bs-answer`. The Agent Skills format
+  has no arguments, so in other agents the agent has to find the values in your request.
+- **The unstaged check of `add-didactic-comments`.** Claude Code runs `git status` before
+  the agent reads the skill, and pastes the result in. Other agents get the command as text,
+  and the agent has to run it.
+- **The format check of `answer-as-type`.** The agent runs `check-value.py` from the skill
+  folder with `python3`. It needs shell access and Python 3.
+- **No-edit skills.** They do not edit files because the skill tells the agent so. No agent,
+  Claude Code included, takes the edit tools away.
 
 ## Skills
 
@@ -51,13 +124,13 @@ software must be, and the agent writes the code that makes it run.
 
 This skill takes two optional arguments, both `y` (yes) by default:
 
-- `lock_definitions`: the agent writes no new function, class, or method. It
+- `lock_definitions`: the agent adds no function, class, or method. It
   fills the gaps with the definitions the tree already holds, and deletes any
   call whose definition is missing.
 - `lock_names`: the agent keeps every name as you wrote it, even one it thinks
   is wrong.
 
-> Example: **New feature or new project**
+> Example: **A feature or a project from scratch**
 >
 > You sketch the shape: the signatures you want to call, the empty classes that
 > name the concepts, a few lines of pseudo code for the tricky part. Then you
@@ -73,7 +146,7 @@ This skill takes two optional arguments, both `y` (yes) by default:
 >
 > You are dealing with badly written code. You delete what has to go, drop an
 > `AI FIXME [optional_details]` comment on what stays but is wrong, and leave the callers pointing at
-> nothing. Run with `lock_definitions: n` when the rewrite needs new pieces, and
+> nothing. Run with `lock_definitions: n` when the rewrite needs more pieces, and
 > `lock_names: n` when the old names are part of the problem.
 
 #### `add-didactic-comments`
@@ -86,7 +159,8 @@ It touches comments only, and it stops if you have unstaged changes.
 
 ### No-edit skills
 
-These skills can read the repo but cannot change it.
+These skills answer and leave the files as they are. The skill text asks for this. Nothing
+takes the edit tools away.
 
 #### `answer-as-type`
 
@@ -143,22 +217,35 @@ resource. No assumptions.
 
 ## Tests
 
-Each task runs 3 times with headless Claude Code (`claude -p`, model `claude-sonnet-5`) in
-each of two arms: in a throwaway git repository with the skill in `.claude/skills/`, and in
-an identical repository without it. Both arms get the same request. The unit is a run, so
-`9/30` means 9 of 30 runs.
+Three skills have tests: `answer-as-type`, `fill-the-gaps`, and `just-do-it`. The design is
+34 tasks x 3 runs x 2 arms = 204 runs:
 
-| Skill | A run fails when | How it is checked | Failed without the skill | Failed with the skill |
-| :-- | :-- | :-- | --: | --: |
-| `answer-as-type`, type inferred | The reply is not the bare value in the expected type, or the value is wrong | The skill's `check-value.py` and an exact expected value | 15/15 | 0/15 |
-| `answer-as-type`, type named in the request | Same | Same | 15/15 | 0/15 |
-| `fill-the-gaps` | The agent adds, renames, or brings back a definition the user did not ask for | A blind AI grader | 9/30 | 0/30 |
-| `just-do-it` | The diff changes anything the request did not ask for, or leaves the code it touched broken | A blind AI grader, shown the diffs only | 0/30 | 0/30 |
+- `answer-as-type`: 10 tasks x 3 runs x 2 arms = 60 runs.
+- `fill-the-gaps`: 12 tasks (10 tasks and 2 controls) x 3 runs x 2 arms = 72 runs.
+- `just-do-it`: 12 tasks (10 tasks and 2 controls) x 3 runs x 2 arms = 72 runs.
+
+Every run is headless Claude Code (`claude -p`, model `claude-sonnet-5`) in a throwaway git
+repository. The arm with the skill holds it in `.claude/skills/`, the arm without it is an
+identical repository. Both arms get the same request. The unit is a run, so `9/30` means 9
+of 30 runs: 10 tasks x 3 runs, in one arm.
+
+| Skill | Tasks | A run fails when | How it is checked | Failed without the skill | Failed with the skill |
+| :-- | --: | :-- | :-- | --: | --: |
+| `answer-as-type`, type inferred | 5 | The reply is not the bare value in the expected type, or the value is wrong | The skill's `check-value.py` and an exact expected value | 15/15 | 0/15 |
+| `answer-as-type`, type named in the request | 5 | Same | Same | 15/15 | 0/15 |
+| `fill-the-gaps` | 10 | The agent adds, renames, or brings back a definition the user did not ask for | A blind AI grader | 9/30 | 0/30 |
+| `just-do-it` | 10 | The diff changes anything the request did not ask for, or leaves the code it touched broken | A blind AI grader, shown the diffs only | 0/30 | 0/30 |
+
+The controls of `fill-the-gaps` and `just-do-it` are tasks where the skill should change
+nothing. They are counted apart: 0/6 runs failed in each arm of each skill.
 
 For `just-do-it`, the question is whether the skill changes the work. The grader compared
 each run with the skill to a run without it: the results differed in 1/30 pairs. Two runs
 without the skill differed from each other in 2/30 pairs, which is the noise floor. All of
 them are type hints written as `dict` or as `typing.Dict`.
+
+The results come from Claude Code and one model. They do not carry over to other agents or
+other models.
 
 The checks are each skill's own contract. They measure whether a skill does what it says,
 not whether the code is better. The baseline is no instruction at all: nothing here compares
