@@ -66,38 +66,6 @@ The paths come from the docs of
 [Cursor](https://cursor.com/docs/context/skills), and
 [OpenCode](https://opencode.ai/docs/skills/).
 
-### Calling a skill
-
-| Agent | How |
-| :-- | :-- |
-| Claude Code, plugin | `/no-bs-skills:<skill> <request>` |
-| Claude Code, skills CLI or by hand | `/<skill> <request>` |
-| Codex | `$<skill> <request>`, or pick it from `/skills` |
-| Cursor | `/<skill> <request>` |
-| OpenCode | Ask for the skill by name. The agent loads it with its `skill` tool. |
-
-The examples below use the plugin form.
-
-### What works where
-
-The skills were written for Claude Code. Some parts of them are Claude Code features:
-
-- **Called by hand only.** Every skill sets `disable-model-invocation: true`, so Claude Code
-  and Cursor load it only when you call it. Codex reads the same rule from
-  `agents/openai.yaml` in each skill folder. OpenCode ignores both, and can load a skill on
-  its own when the request matches its description.
-- **Arguments.** Claude Code fills named arguments from the words after the skill name:
-  the type of `answer-as-type`, the locks of `fill-the-gaps`, the topics of
-  `add-didactic-comments`, the `example` switch of `no-bs-answer`. The Agent Skills format
-  has no arguments, so in other agents the agent has to find the values in your request.
-- **The unstaged check of `add-didactic-comments`.** Claude Code runs `git status` before
-  the agent reads the skill, and pastes the result in. Other agents get the command as text,
-  and the agent has to run it.
-- **The format check of `answer-as-type`.** The agent runs `check-value.py` from the skill
-  folder with `python3`. It needs shell access and Python 3.
-- **No-edit skills.** They do not edit files because the skill tells the agent so. No agent,
-  Claude Code included, takes the edit tools away.
-
 ## Skills
 
 ### Coding skills
